@@ -5,6 +5,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import BlogModal from "@/components/BlogModal";
 import { processBlogPageContent } from "@/lib/processBlogContent";
+import BlogForm from "@/components/BlogForm";
 
 function BlogDetailPage({ blog, tableOfContents, contentBlocks }) {
     const [isTocOpen, setIsTocOpen] = useState(false);
@@ -124,6 +125,8 @@ function BlogDetailPage({ blog, tableOfContents, contentBlocks }) {
                         </nav>
                     </div>
                 )}
+
+                <BlogForm fields={blog.selectedFields} className="mb-4 lg:mb-8" />
 
                 <div className="text-gray-700 px-4 lg:px-16">
                     {contentBlocks.map((block, index) => {
