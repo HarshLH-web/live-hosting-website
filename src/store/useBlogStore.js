@@ -9,7 +9,8 @@ const useBlogStore = create((set, get) => ({
   fetchBlogs: async (tagParam) => {
     set({ isLoading: true });
     try {
-      const response = await axios.get('https://webpanel.store/api/blogs/selected-fields');
+      const response = await axios.get('https://webpanel.store/api/live-hosting-blogs/selected-fields');
+      // const response = await axios.get('http://localhost:8000/api/live-hosting-blogs/selected-fields');
       const filteredBlogs = response.data.filter(blog => blog.toPublish).filter(blog => 
         tagParam 
           ? blog.tags.some(tag => 
@@ -21,7 +22,8 @@ const useBlogStore = create((set, get) => ({
       
       set({ blogs: filteredBlogs });
 
-      const fullResponse = await axios.get('https://webpanel.store/api/blogs');
+      // const fullResponse = await axios.get('http://localhost:8000/api/live-hosting-blogs');
+      const fullResponse = await axios.get('https://webpanel.store/api/live-hosting-blogs');
       const fullData = fullResponse.data.reduce((acc, blog) => {
         acc[blog.slug] = blog;
         return acc;

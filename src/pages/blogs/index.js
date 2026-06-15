@@ -11,22 +11,6 @@ import Image from 'next/image';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 
-// const BreadcrumbSchema = 
-// {
-//   "@context": "https://schema.org/", 
-//   "@type": "BreadcrumbList", 
-//   "itemListElement": [{
-//     "@type": "ListItem", 
-//     "position": 1, 
-//     "name": "Home",
-//     "item": "https://lhtalentagency.com/"  
-//   },{
-//     "@type": "ListItem", 
-//     "position": 2, 
-//     "name": "Blogs",
-//     "item": "https://lhtalentagency.com/blogs"  
-//   }]
-// }
 
 
 function Blogs() {
@@ -74,26 +58,7 @@ function Blogs() {
       <title>LH Talent Agency Blog: Tips for Streamers</title>
       <meta name="description" content="LH Talent Agency's blog page provides you with all the needed information with updated details, insights, and tips about the live streaming industry. Explore Now!" />
       <meta name="keywords" content="Explore the opportunities in the live streaming industry, Step-by-step Guide to become a streaming agent, Guide for creating agency as a streamer" />
-      {/* <!-- Facebook Meta Tags --> */}
-      {/* <meta property="og:url" content="https://lhtalentagency.com/blogs" />
-      <meta property="og:type" content="website" />
-      <meta property="og:title" content="LH Talent Agency Blog: Tips for Streamers" />
-      <meta property="og:site_name" content="LH Talent Agency" />
-      <meta property="og:description" content="LH Talent Agency's blog page provides you with all the needed information with updated details, insights, and tips about the live streaming industry. Explore Now!" />
-      <meta property="og:image" content="https://opengraph.b-cdn.net/production/images/e04db76e-b344-45d3-a4fd-bfcc6a3bb231.jpg?token=wthbG12ZawSlhgRHgv7eK3o8ISBCVVFjtJJJjz_EZl4&height=650&width=1200&expires=33277340250" /> */}
-
-      {/* <!-- Twitter Meta Tags --> */}
-      {/* <meta name="twitter:card" content="summary_large_image" />
-      <meta property="twitter:domain" content="lhtalentagency.com" />
-      <meta property="twitter:url" content="https://lhtalentagency.com/blogs" />
-      <meta name="twitter:title" content="LH Talent Agency Blog: Tips for Streamers" />
-      <meta name="twitter:description" content="LH Talent Agency's blog page provides you with all the needed information with updated details, insights, and tips about the live streaming industry. Explore Now!" />
-      <meta name="twitter:image" content="https://opengraph.b-cdn.net/production/images/e04db76e-b344-45d3-a4fd-bfcc6a3bb231.jpg?token=wthbG12ZawSlhgRHgv7eK3o8ISBCVVFjtJJJjz_EZl4&height=650&width=1200&expires=33277340250" />
-      <meta name="robots" content="index, follow" />
-      <link rel="canonical" href="https://lhtalentagency.com/blogs" />
-      <script type="application/ld+json">
-        {JSON.stringify(BreadcrumbSchema)}
-      </script> */}
+     
     </Head>
 
     <Header />
@@ -105,7 +70,7 @@ function Blogs() {
         <p className="col-span-full text-center text-lg text-gray-600">Loading...</p>
       ) : displayedBlogs.length > 0 ? displayedBlogs.map((blog) => (
         <div key={blog._id} className='rounded-lg overflow-hidden'>
-         <Link href={`/blogs/${blog.slug}`} key={blog._id} className="block" onClick={() => setIsBlogLoading(true)}>
+         <Link href={`/${blog.slug}`} key={blog._id} className="block" onClick={() => setIsBlogLoading(true)}>
           <div>
             <Image src={blog.coverImage} alt={blog.title} className='w-full h-52 object-cover' width={1000} height={1000} />
           </div>

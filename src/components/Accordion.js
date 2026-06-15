@@ -49,7 +49,7 @@ const AppsAccordion = () => {
       heading: 'POPPO LIVE',
       description: 'Make live-streaming and group interactions playful.',
       hostBtnText:'Poppo Host',
-      hostBtnURL:'/blogs/become-poppo-live-host-and-earn-money',
+      hostBtnURL:'/become-poppo-live-host-and-earn-money',
       agentBtnText:'Poppo Agent',
       agentBtnURL:'https://poppoagencyregistration.com/register/become-poppo-agent',
       bgimg: '/poppo-bg.webp',

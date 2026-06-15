@@ -99,13 +99,11 @@ function Footer() {
                   href: '/become-live-streamer'
                 }
               ].map((item, index) => (
-                <>
                 <div key={index} className='flex items-center'>
                   <span className='bg-white w-1 h-1 rounded-full inline-block mr-2'></span>
                 <Link href={item.href} className="text-white block md:inline transform hover:translate-x-2 hover:text-[#ff2e2b] transition duration-300">{item.title}</Link>
                 </div>
-                {/* <div className="h-px bg-[#242424] last:hidden"></div> */}
-                </>
+
                 
             ))} 
             </div>
@@ -123,36 +121,33 @@ function Footer() {
              {[
               {
                 title: 'Succeed on Poppo Live',
-                href: '/blogs/tango-agency-registration'
+                href: '/tango-agency-registration'
               },
               {
                 title: 'How to Become a poppo App Agency',
-                href: '/blogs/become-poppo-live-host-and-earn-money'
+                href: '/become-poppo-live-host-and-earn-money'
               },
               {
                 title: 'Poppo Live App features & benefits',
-                href: '/blogs/how-poppo-app-agency-earn-money'
+                href: '/how-poppo-app-agency-earn-money'
               },
               {
                 title: 'Increasing Demand of Influencers',
-                href: '/blogs/joyo-live-agency'
+                href: '/joyo-live-agency'
               },
               {
                 title: 'How to Become a poppo App Agency',
-                href: '/blogs/how-to-trade-coins-in-poppo-live'
+                href: '/how-to-trade-coins-in-poppo-live'
               },
               {
                 title: 'How to Register as a Niki Live Agent',
-                href: '/blogs/how-to-trade-coins-in-poppo-live'
+                href: '/how-to-trade-coins-in-poppo-live'
               }
              ].map((item, index) => (
-              <>
               <div key={index} className='flex items-center'>
                 <span className='bg-white w-1 min-w-1 min-h-1 h-1 rounded-full inline-block mr-2'></span>
                <Link href={item.href} className="text-white transform hover:translate-x-2 hover:text-[#ff2e2b] transition duration-300 block md:inline">{item.title}</Link>
               </div>
-              {/* <div className="h-px bg-[#242424] last:hidden"></div> */}
-              </>
              ))}
             </div>
         </div>
