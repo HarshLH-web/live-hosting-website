@@ -133,14 +133,12 @@ function BlogForm({ fields, className }) {
     }));
   };
 
-  const nonTextareaFields = fields.filter(
-    (field) => field.type !== "textarea"
-  );
+  const isOddFields = fields.length % 2 !== 0;
   
-  const lastNonTextareaId =
-    nonTextareaFields.length % 2 !== 0
-      ? nonTextareaFields[nonTextareaFields.length - 1]?.id
-      : null;
+  // const lastNonTextareaId =
+  //   nonTextareaFields.length % 2 !== 0
+  //     ? nonTextareaFields[nonTextareaFields.length - 1]?.id
+  //     : null;
 
   return (
     <div
@@ -156,9 +154,9 @@ function BlogForm({ fields, className }) {
           key={field.id}
           className={`relative w-full ${
             field.type === "textarea"
-              ? "lg:w-full"
-              : field.id === lastNonTextareaId
-              ? "lg:w-full"
+              ? isOddFields
+                ? "lg:w-[99%]"
+                : "lg:w-[49%]"
               : "lg:w-[49%]"
           }`}
         >

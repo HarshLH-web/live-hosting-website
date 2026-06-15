@@ -1,5 +1,11 @@
 import { JSDOM } from "jsdom";
 
+export const BLOG_FORM_PLACEHOLDER = "Blog Form Here";
+
+function isBlogFormPlaceholder(element) {
+    return element.textContent?.trim() === BLOG_FORM_PLACEHOLDER;
+}
+
 function processImages(document, htmlContent) {
     const tempDiv = document.createElement("div");
     tempDiv.innerHTML = htmlContent;
@@ -23,6 +29,10 @@ function htmlToContentBlocks(document, processedContent) {
     tempDiv.innerHTML = processedContent;
 
     return Array.from(tempDiv.children).map((element) => {
+        if (isBlogFormPlaceholder(element)) {
+            return { type: "form" };
+        }
+
         if (element.id?.startsWith("blog-image-")) {
             return {
                 type: "image",

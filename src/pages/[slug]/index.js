@@ -16,7 +16,7 @@ function BlogDetailPage({ blog, tableOfContents, contentBlocks }) {
 
     return (
         <>
-            <Head>
+            {/* <Head>
                 <title>{`${blog.metaTitle} | LH Talent Agency`}</title>
                 <meta name="description" content={blog.metaDescription} />
                 <link rel="canonical" href={`${blog.canonicalUrl}`} />
@@ -36,7 +36,7 @@ function BlogDetailPage({ blog, tableOfContents, contentBlocks }) {
                 <script type="application/ld+json">
                     {JSON.stringify(blog.blogSchema)}
                 </script>
-            </Head>
+            </Head> */}
 
             <Header />
 
@@ -126,10 +126,22 @@ function BlogDetailPage({ blog, tableOfContents, contentBlocks }) {
                     </div>
                 )}
 
-                <BlogForm fields={blog.selectedFields} className="mb-4 lg:mb-8" />
-
                 <div className="text-gray-700 px-4 lg:px-16">
                     {contentBlocks.map((block, index) => {
+                        if (block.type === "form") {
+                            if (!blog.formRequired || !blog.selectedFields?.length) {
+                                return null;
+                            }
+
+                            return (
+                                <BlogForm
+                                    key={`form-${index}`}
+                                    fields={blog.selectedFields}
+                                    className="my-8 mx-auto"
+                                />
+                            );
+                        }
+
                         if (block.type === "image") {
                             return (
                                 <div key={`image-${index}`} className="my-4">
