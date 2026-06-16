@@ -121,12 +121,12 @@ export default function Home() {
     
       <ScrollUpButton />
       <Header />
-      <main className="h-auto w-full main relative">
+      <main className="h-auto w-full main relative pb-20 pt-28 px-4 lg:pb-0 lg:pt-20 lg:px-0">
         <div className="flex flex-col lg:flex-row-reverse w-full mx-auto h-full">
           {/* Banner Text */}
           <div className="w-full lg:w-3/5 flex flex-col justify-center text-center lg:text-left 2xl:pl-12 gap-4">
           <div className='max-w-4xl lg:ml-16 2xl:ml-16 lg:py-20'>
-            <h1 className="text-[35px] max-w-[300px] mx-auto sm:mx-0 sm:max-w-none sm:text-[3rem] xl:text-6xl 2xl:text-[4.25rem] leading-[1.15] sm:leading-tight uppercase font-black">
+            <h1 className="text-[35px] mx-auto sm:mx-0 sm:max-w-none sm:text-[3rem] lg:text-5xl xl:text-6xl 2xl:text-[4.25rem] leading-[1.15] sm:leading-tight uppercase font-black">
             LH Talent Agency
             </h1>
             

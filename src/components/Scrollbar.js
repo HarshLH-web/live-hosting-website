@@ -12,15 +12,16 @@ const ScrollAnimation = () => {
   });
 
   return (
-    <motion.div
-      style={{
-        scaleX, // Apply the scaleX value based on the scroll progress
-        transformOrigin: '0%', // Ensure the scale happens from the left side
-        width: '100%', // Full width element
-        height: '2px', // Adjust height as needed
-        background: '#DE0402', // Adjust color as needed
-      }}
-    />
+    <></>
+    // <motion.div
+    //   style={{
+    //     scaleX, // Apply the scaleX value based on the scroll progress
+    //     transformOrigin: '0%', // Ensure the scale happens from the left side
+    //     width: '100%', // Full width element
+    //     height: '2px', // Adjust height as needed
+    //     background: '#DE0402', // Adjust color as needed
+    //   }}
+    // />
   );
 };
 

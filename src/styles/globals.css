@@ -5,7 +5,7 @@ body{
   font-family: 'Roboto', sans-serif;
   font-display: swap;
   scroll-behavior: smooth;
-  padding-top: 5.1rem;
+  /* padding-top: 5.1rem; */
   /* cursor: none; */
   user-select: none;
 }
@@ -34,14 +34,6 @@ img{
   overflow: hidden;
 }
 
-
-#wwa{
-  background-image: url(/what-we.png);
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-}
 .main{
   background-image: url(/main-bg.png);
   background-position: top;
@@ -51,134 +43,13 @@ img{
   /* border-radius: 0 0 100px 100px; */
 }
 
-.box1{
-  background: url(/box-1.png),white;
-  background-position: top;
-  background-size: cover;
-  background-repeat: no-repeat;
-}
-
-.box2{
-  background: url(/box-2.png),white;
-  background-position: top;
-  background-size: cover;
-  background-repeat: no-repeat;
-}
-
-.box3{
-  background: url(/box-3.png),white;
-  background-position: top;
-  background-size: cover;
-  background-repeat: no-repeat;
-}
-
-.wwa-gradient{
-  background: rgb(156,16,12);
-  background: linear-gradient(90deg, rgba(156,16,12,1) 0%, transparent 50%);
-}
-
-.collaboration-section{
-  background: url(/collaboration-bg.webp);
+.heading-bg{
+  background-image: url(/heading-bg.png);
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
 }
 
-.marketing-bg{
-  background: url(/marketing-bg.png);
-  background-position: bottom;
-  background-size: cover;
-  background-repeat: no-repeat;
-}
-
-.about-bg{
-  background: url(/bg/lh-about-img.webp);
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
-  width: 100%;
-  height: 18rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.services-bg{
-  background: url(/bg/services-bg.webp);
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
-  width: 100%;
-  height: 18rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.appPromotion-bg{
-  background: url(/app-promotion-bg.png);
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
-  /* width: 100%;
-  height: 18rem;
-  display: flex;
-  align-items: center;
-  justify-content: center; */
-}
-
-.apply-bg{
-  background: url(/Apply-nowPage/apply-bg.png);
-  background-position: top;
-  background-size: cover;
-  background-repeat: no-repeat;
-}
-
-.faq-bg{
-  background: url(/bg/FAQ-bg.png);
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
-}
-
-.blog-bg{
-  background: url(/bg/blogs-bg.webp);
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
-  width: 100%;
-  height: 18rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.contact-bg{
-  background: url(/bg/contact_us-bg.webp);
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
-  width: 100%;
-  height: 18rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.tab-gradient{
-  background: rgb(250,245,225);
-  background: linear-gradient(0deg, rgba(250,245,225,1) 0%, rgba(255,255,255,1) 80%);
-}
-
-.tab-content-shadow{
-  border: 1px solid #DE0402;
-  -webkit-box-shadow: 8px 8px 0px 0px rgba(237,238,238,1);
-  -moz-box-shadow: 10px 10px 0px 0px rgba(237,238,238,1);
-  box-shadow: 10px 10px 0px 0px rgba(237,238,238,1);
-}
-/* #blog-container{
-  background: #cd0101;
-} */
 #blog-container h1{
   font-weight: 600;
   font-size: 2.5rem;
@@ -285,78 +156,16 @@ img{
   height: auto !important;
 }
 
-.duoo-btn-gradient{
-  background: linear-gradient(90deg, #FF055F 0%, #FFD600 100%);
-}
-
-@media only screen and (max-width: 1024px) {
-.crush-bg{
-  background: linear-gradient(120deg,rgba(143, 56, 255, 1) 0%, rgba(162, 55, 255, 1) 25%, rgba(227, 104, 205, 1) 80%, rgba(255, 219, 94, 1) 100%);
-}
-}
 
 @media only screen and (max-width: 600px) {
   .main{
-      background: url(/banner-BG-mobile.png),linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(247,240,211,1) 100%);
+      background: url(/main-bg.png);
       background-position: top;
-      background-size: contain;
+      background-size: cover;
       background-repeat: no-repeat;
       /* border-radius: 0 0 50px 50px; */
   }
-  #wwa{
-      background: #010D08;
-  }
-  .marketing-bg{
-      background: url(/marketing-bg.png);
-      background-position: bottom;
-      background-size: contain;
-      background-repeat: no-repeat;
-  }
-  .about-bg{
-      height: 10rem;
-  }
-  .services-bg{
-      height: 10rem;
-  }
-  .blog-bg{
-      background: linear-gradient(180deg, rgba(0, 0, 0, 0.308) 0%, rgba(0, 0, 0, 0.203) 100%),url(/blogs-bg-mobile.png);
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
-      height: 10rem;
-  }
-  .contact-bg{
-      background: url(/bg/contact-us_bg-mobile.png);
-      background-position: center;
-      background-size: cover;
-      background-repeat: no-repeat;
-      height: 10rem;
-  }
 
-  .faq-bg{
-      background: url(/bg/FAQ-bg-mobile.png);
-      background-position: right;
-      background-size: cover;
-      background-repeat: no-repeat;
-  }
-
-  .apply-bg{
-      background: url(/bg/apply-bg-mobile.png);
-      background-position: top;
-      background-size: cover;
-      background-repeat: no-repeat;
-  }
-
-  .services-bg{
-      background: url(/bg/services-bg-mobile.webp);
-      background-position: top;
-      background-size: cover;
-      background-repeat: no-repeat;
-  }
-
-  .box1{
-      background-size: contain;
-  }
   #blog-container h1{
       font-size: 24px;
       font-weight: 600;

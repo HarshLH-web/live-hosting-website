@@ -1,0 +1,339 @@
+[
+    {
+      "name": "Poppo Live",
+      "logo": "/Apply-nowPage/poppo-logo.png",
+      "description": [
+          [
+              "Live Streaming App.",
+              "All Hosts can Apply.",
+              "Host from all Countries.",
+              "Agencies from all Countries."
+          ]
+      ],
+      "buttons": [
+        {
+          "text": "Apply Hosting",
+          "url": "/blogs/become-poppo-live-host-and-earn-money"
+        },
+        {
+          "text": "Start Agency",
+          "url": "https://poppoagencyregistration.com/register/become-poppo-agent"
+        }
+      ],
+      "download": [
+        {
+          "text": "Host Policy",
+          "url": "/Policies/POPPO HOST REGISTRATION - WEBSITE.pdf"
+        },
+        {
+          "text": "Agency Policy",
+          "url": "/Policies/POPPO AGENCY POLICY - WEBSITE.pdf"
+        },
+        {
+          "text": "Coin Seller Policy",
+          "url": "/Policies/Poppo Coin Trading - Website .pdf"
+        },
+        {
+          "text": "Rocket Host and Star Host Policy",
+          "url": "/Policies/Poppo rocket host and star host policy - website.pdf"
+        }
+      ]
+    },
+    {
+      "name": "Hala Live",
+      "logo": "/Apply-nowPage/hala-logo.png",
+      "description": [
+          [
+              "PK and Party Rooms (Audio).",
+              "All Hosts can Apply.",
+              "Host from all Countries.",
+              "Agencies from all Countries."
+          ]
+      ],
+      "buttons": [
+        {
+          "text": "Apply Hosting",
+          "url": "https://h5.toptdcloud.com/h5/index.html#/share_hostPage?uid=2817845"
+        },
+        {
+          "text": "Start Agency",
+          "url": "https://h5.toptdcloud.com/h5/index.html#/share_agentPage?uid=2817845"
+        }
+      ],
+      "download": [
+        {
+          "text": "Hala Live Host Policy",
+          "url": "/Policies/Hala-Host-Policy.pdf"
+        },
+        {
+          "text": "Hala Live Agency Policy",
+          "url": "/Policies/Hala-Agency-Policy.pdf"
+        }
+      ]
+    },
+    {
+      "name": "Niki Live",
+      "logo": "/Apply-nowPage/niki-logo.png",
+      "description": [
+        [
+          "Live Streaming App.",
+          "All Hosts can Apply.",
+          "Host from all Countries.",
+          "Agencies from all Countries."
+        ]
+      ],
+      "buttons": [
+        {
+          "text": "Apply Hosting",
+          "url": "https://nikiliveagent.com/#host"
+        },
+        {
+          "text": "Start Agency",
+          "url": "https://nikiliveagent.com/#agent"
+        }
+      ],
+      "download": [
+        {
+          "text": "Host Policy",
+          "url": "/Policies/Niki live Host Policy.pdf"
+        },
+        {
+          "text": "Agency Policy",
+          "url": "/Policies/Niki live Agency Policy.pdf"
+        },
+        {
+          "text": "Coin Seller Policy",
+          "url": "/Policies/Niki live Coin Seller Policy.pdf"
+        }
+      ]
+    },
+    {
+      "name": "Chamet",
+      "logo": "/Apply-nowPage/chamet-logo.png",
+      "description": [
+        [
+          "Video Streaming & Live Streaming App.",
+          "Only Female Hosts can Apply.",
+          "Host from all Countries.",
+          "Agencies from all Countries."
+      ]
+      ],
+      "buttons": [
+        {
+          "text": "Apply Hosting",
+          "url": "https://chametappagency.com/#host"
+        },
+        {
+          "text": "Start Agency",
+          "url": "https://chametappagency.com/#agent"
+        }
+      ],
+      "download": [
+        {
+          "text": "Host Policy",
+          "url": "/Policies/Chamet Host Policy 2024-25 (1).pdf"
+        },
+        {
+          "text": "Agency Policy",
+          "url": "/Policies/CHAMET AGENCY POLICY 2024-25  (1).pdf"
+        }
+      ]
+    },
+    {
+      "name": "Crush Live",
+      "logo": "/Apply-nowPage/crush-logo.png",
+      "description": [
+          [
+              "Live Streaming & Video Calling App.",
+              "All Hosts can Apply.",
+              "Host from all Countries.",
+              "Agencies from all Countries."
+          ]
+      ],
+      "buttons": [
+        {
+          "text": "Apply Hosting",
+          "url": "crush-agency-registration#crush-live-host-registration-process"
+        },
+        {
+          "text": "Start Agency",
+          "url": "crush-agency-registration#crush-live-agency-registration-process"
+        }
+      ],
+      "download": [
+        {
+          "text": "Host Policy",
+          "url": "/Policies/Boloup-App-host-policy.pdf"
+        },
+        {
+          "text": "Agency Policy",
+          "url": "/Policies/Boloup-App-agency-policy.pdf"
+        },
+        {
+          "text": "Star Host & Live Performer Policy",
+          "url": "/Policies/Boloup-App-star-host_s-idol_live-perfomer-policy.pdf"
+        }
+      ]
+    },
+    {
+      "name": "Boloup Live",
+      "logo": "/Apply-nowPage/boloup-logo.png",
+      "description": [
+          [
+              "Live Streaming & Video Calling App.",
+              "All Hosts can Apply.",
+              "Host from all Countries.",
+              "Agencies from all Countries."
+          ]
+      ],
+      "buttons": [
+        {
+          "text": "Apply Hosting",
+          "url": "boloup-agency-registration#host-registration"
+        },
+        {
+          "text": "Start Agency",
+          "url": "boloup-agency-registration#agency-registration"
+        }
+      ],
+      "download": [
+        {
+          "text": "Host Policy",
+          "url": "/Policies/Boloup-App-host-policy.pdf"
+        },
+        {
+          "text": "Agency Policy",
+          "url": "/Policies/Boloup-App-agency-policy.pdf"
+        },
+        {
+          "text": "Star Host & Live Performer Policy",
+          "url": "/Policies/Boloup-App-star-host_s-idol_live-perfomer-policy.pdf"
+        }
+      ]
+    },
+    {
+      "name": "Duoo Live",
+      "logo": "/Apply-nowPage/duoo-logo.png",
+      "description": [
+          [
+              "Live Streaming & Video Calling App.",
+              "Only Female Hosts can Apply.",
+              "Host from all Countries.",
+              "Agencies from all Countries."
+          ]
+      ],
+      "buttons": [
+        {
+          "text": "Apply Hosting",
+          "url": "/duo-agency-registration/#duoo-host-registration"
+        },
+        {
+          "text": "Start Agency",
+          "url": "/duo-agency-registration/#duoo-agency-registration"
+        }
+      ],
+      "download": [
+        {
+          "text": "Host Policy",
+          "url": "/duoo/Policies/Duoo-Host-Policy.pdf"
+        },
+        {
+          "text": "Agency Policy",
+          "url": "/duoo/Policies/Duoo-Agency-Policy.pdf"
+        }
+      ]
+    },
+    {
+      "name": "HoneyCam",
+      "logo": "/Apply-nowPage/honeycam-logo.png",
+      "description": [
+        [
+          "Video Streaming & Live Streaming App.",
+          "Only Female Hosts can Apply.",
+          "Host from all Countries.",
+          "Agencies from all Countries."
+      ]
+      ],
+      "buttons": [
+        {
+          "text": "Start Agency",
+          "url": "https://www.honeycammcn.com/?unionId=6052&unionName=LH+Talent+Agency#/register"
+        }
+      ],
+      "download": [
+        {
+          "text": "Host Policy",
+          "url": "/Policies/HoneyCam Host Policy-2023.pdf"
+        },
+        {
+          "text": "Agency Policy",
+          "url": "/Policies/Honeycal Agent policy-2023.pdf"
+        }
+      ]
+    },
+    {
+      "name": "Taka Live",
+      "logo": "/Apply-nowPage/taka-logo.png",
+      "description": [
+          [
+              "Live Streaming & Video Calling App.",
+              "All Hosts can Apply.",
+              "Host from all Countries.",
+              "Agencies from all Countries."
+          ]
+      ],
+      "buttons": [
+        {
+          "text": "Apply Hosting",
+          "url": "https://os8.me/8njKDa"
+        },
+        {
+          "text": "Start Agency",
+          "url": "https://os8.me/BbSrzQ"
+        }
+      ],
+      "download": [
+        {
+          "text": "Host Policy",
+          "url": "/Policies/TAKA LIVE HOST POLICY.pdf"
+        },
+        {
+          "text": "Agency Policy",
+          "url": "/Policies/TAKA LIVE AGENCY POLICY.pdf"
+        },
+        {
+          "text": "Coin Seller Policy",
+          "url": "/Policies/TAKA LIVE COINSELLER POLICY.pdf"
+        }
+      ]
+    },
+    {
+      "name": "Tango Live",
+      "logo": "/Apply-nowPage/tango-logo.png",
+      "description": [
+          [
+              "Live Streaming App.",
+              "All Hosts can Apply.",
+              "Host from all Countries.",
+              "Agencies from all Countries."
+          ]
+      ],
+      "buttons": [
+        {
+          "text": "Start Agency",
+          "url": "https://tangoliveagent.com/"
+        }
+      ],
+      "download": [
+        {
+          "text": "Host Policy",
+          "url": "/Policies/Tango Host Policy.pdf"
+        },
+        {
+          "text": "Agency Policy",
+          "url": "/Policies/Tango Agency Policy.pdf"
+        }
+      ]
+    }
+  ]
+  
