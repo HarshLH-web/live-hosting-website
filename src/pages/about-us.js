@@ -2,9 +2,16 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Image from "next/image";
 import Link from "next/link";
+import Head from "next/head";
 export default function AboutUs() {
   return (
     <>
+
+    <Head>
+      <title>Live Hosting is a Live Streaming & Talent Management Agency</title>
+      <meta name="description" content="Live Hosting Talent Agency provide influencer jobs, social media jobs, live streaming jobs & manage influencer accounts. LH TALENT AGENCY" />
+      {/* <meta name="keywords" content="Live Streaming Jobs, Live Streaming Jobs in India, Live Streaming Jobs in Pakistan, Live Streaming Jobs in the Philippines, Live Streaming Jobs in the USA, Live Streaming Jobs in Africa, Live Streaming Jobs in Europe" /> */}
+    </Head>
       <Header />
 
       <div className="heading-bg text-center border-b-2 border-[#DE0402]">
@@ -13,7 +20,7 @@ export default function AboutUs() {
         </h1>
       </div>
 
-      <div className="w-[95%] lg:w-[90%] max-w-7xl mx-auto flex flex-col lg:flex-row items-center justify-center gap-3 lg:gap-8 pt-12 lg:pt-20 pb-12">
+      <div className="w-[90%] max-w-7xl mx-auto flex flex-col lg:flex-row items-center justify-center gap-3 lg:gap-8 pt-12 lg:pt-20 pb-12">
         <div className="w-full lg:w-2/5">
           <Image
             src="/about-hero.png"
@@ -42,7 +49,7 @@ export default function AboutUs() {
         </div>
       </div>
 
-      <div className="w-[95%] lg:w-[90%] max-w-7xl mx-auto text-center space-y-4 pb-12 lg:pb-20 lg:px-6 2xl:px-12">
+      <div className="w-[90%] max-w-7xl mx-auto text-center space-y-4 pb-12 lg:pb-20 lg:px-6 2xl:px-12">
         <p className="text-base lg:text-lg lg:leading-normal">
           At LH Talent Agency, we make sure to provide new opportunities to
           showcase their talents in the field of live-streaming and help them
@@ -74,7 +81,7 @@ export default function AboutUs() {
 
 
       <div className="bg-[#FFF7E9] py-12 lg:py-20">
-        <div className="w-[95%] lg:w-[90%] max-w-7xl mx-auto">
+        <div className="w-[90%] max-w-7xl mx-auto">
             <h2 className="text-3xl lg:text-4xl 2xl:text-5xl font-extrabold uppercase text-center">WHAT DO WE DO?</h2>
 
             <div className="flex flex-col lg:flex-row items-center justify-center gap-3 lg:gap-8 py-12">

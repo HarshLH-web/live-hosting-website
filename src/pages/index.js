@@ -118,6 +118,11 @@ export default function Home() {
 
   return (
     <>
+    <Head>
+      <title>LH Talent Agency - Connecting streamers with live-streaming apps</title>
+      <meta name="description" content="The No.1 performing Agency Globally. LH Talent Agency recruits talented streamers and agents for live-streaming, video-calling, and audio-chat apps." />
+      {/* <meta name="keywords" content="Live Streaming Jobs, Live Streaming Jobs in India, Live Streaming Jobs in Pakistan, Live Streaming Jobs in the Philippines, Live Streaming Jobs in the USA, Live Streaming Jobs in Africa, Live Streaming Jobs in Europe" /> */}
+    </Head>
     
       <ScrollUpButton />
       <Header />
@@ -131,7 +136,7 @@ export default function Home() {
             </h1>
             
             <div className="flex flex-col gap-2 mt-4">
-            <p className="text-base lg:text-lg 2xl:text-xl lg:pr-24 lg:leading-normal">LH Talent Agency is a top performer agency with 20,000+ agents and 12,000+ hosts from various countries such as India, Pakistan, the Philippines, the USA, Africa, Europe, and many more.</p>
+            <p className="text-base lg:text-lg 2xl:text-xl lg:pr-24 lg:leading-[1.35]">LH Talent Agency is a top performer agency with 20,000+ agents and 12,000+ hosts from various countries such as India, Pakistan, the Philippines, the USA, Africa, Europe, and many more.</p>
             <div className='bg-black/20 h-px w-full my-2 max-w-3xl'></div>
             <p className="text-base lg:text-xl 2xl:text-xl lg:pr-24 font-semibold mt-2">We recruit entertaining streamers, influencers, and agents for live-streaming, video-calling, and audio-chat apps.</p> 
             
@@ -181,8 +186,8 @@ export default function Home() {
 
 
       {/* Section 2 */}
-      <section id="one-stop-platform">
-        <div className="w-[90%] mx-auto bg-white pt-12 pb-12 lg:pt-24 lg:pb-20 scroll-mt-96">
+      <section id="one-stop-platform" className='scroll-mt-12'>
+        <div className="w-[90%] mx-auto bg-white pt-12 pb-12 lg:pt-24 lg:pb-20">
           <h2 className="uppercase text-center text-black font-extrabold text-4xl md:text-5xl leading-tight md:leading-snug max-w-5xl mx-auto">One-Stop Platform For Streamers, Agents & Applications</h2>
 
           {/* Box Container */}

@@ -80,7 +80,7 @@ function Footer() {
                 },
                 {
                   title: 'Join as Agent',
-                  href: '/about-talent-agency'
+                  href: '/become-host-recruiter'
                 },
                 {
                   title: 'Join as Streamer',
@@ -88,23 +88,21 @@ function Footer() {
                 },
                 {
                   title: 'Register as Influencer',
-                  href: '/become-live-streamer'
+                  href: '/influencer-registration'
                 },
                 {
                   title: 'About Us',
-                  href: '/about-talent-agency'
+                  href: '/about-us'
                 },
                 {
                   title: 'Streamer Tips',
-                  href: '/become-live-streamer'
+                  href: '/live-streaming-tips'
                 }
               ].map((item, index) => (
                 <div key={index} className='flex items-center'>
                   <span className='bg-white w-1 h-1 rounded-full inline-block mr-2'></span>
                 <Link href={item.href} className="text-white block md:inline transform hover:translate-x-2 hover:text-[#ff2e2b] transition duration-300">{item.title}</Link>
                 </div>
-
-                
             ))} 
             </div>
           </div>

@@ -1,6 +1,7 @@
 import FaqAccordion from "@/components/FaqAccordion";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
+import Head from "next/head";
 
 const faqs = [
   {
@@ -53,6 +54,10 @@ const faqs = [
 export default function FAQ() {
   return (
     <>
+    <Head>
+        <title>Live Streaming Talent Agency - Frequently Asked Questions</title>
+        <meta name="description" content="FAQ- What are Live Streaming Apps? Live Streaming applications are the entertainment industry. LH Talent Agency works with live-streaming apps." />
+    </Head>
       <Header />
 
       <div className="heading-bg text-center border-b-2 border-[#DE0402]">

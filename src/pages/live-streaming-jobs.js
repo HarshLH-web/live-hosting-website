@@ -30,7 +30,11 @@ const LiveStreamingJobs = () => {
 
   return (
     <>
-      <Header />
+        <Head>
+            <title>Apply Now on LH Talent Agency as Hosts and Agents</title>
+            <meta name="description" content="Live Hosting Agency is currently hiring for 1v1 Host, Video streamer Hosts, Live Streamer Hosts, Audio streaming Hosts, and Talent Recruitment agencies." />
+        </Head>
+        <Header />
 
       <div className="heading-bg text-center border-b-2 border-[#DE0402]">
         <h1 className="text-black text-4xl lg:text-6xl font-extrabold uppercase pt-16 pb-20 lg:pb-20 lg:pt-36 lg:px-6 w-fit mx-auto border-b-4 border-[#DE0402]">

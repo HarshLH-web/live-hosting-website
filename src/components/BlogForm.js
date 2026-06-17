@@ -170,7 +170,7 @@ function BlogForm({ fields, className }) {
                   placeholder=" "
                   onChange={handleInputChange}
                   required={field.required}
-                  className="peer block w-full min-h-40 py-2 px-4 rounded-3xl border border-[#DFDFDF] bg-white focus:outline-none focus:ring-1 focus:ring-[#DE0402] focus:border-transparent"
+                  className={`peer block w-full ${isOddFields ? 'min-h-40' : 'min-h-none'}  py-2 px-4 rounded-3xl border border-[#DFDFDF] bg-white focus:outline-none focus:ring-1 focus:ring-[#DE0402] focus:border-transparent`}
                 />
                 <label
                   htmlFor={field.value}
@@ -290,6 +290,8 @@ function BlogForm({ fields, className }) {
           disabled={isSubmitting}
           style={{
             width: "100%",
+            maxWidth: "200px",
+            margin: "0 auto",
             padding: "0.75rem 1rem",
             marginTop: "0.5rem",
             backgroundColor: isSubmitting ? "#ccc" : "#DE0402",

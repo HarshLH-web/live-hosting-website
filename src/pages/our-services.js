@@ -2,6 +2,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Image from "next/image";
 import Link from "next/link";
+import Head from "next/head";
 
 export default function OurServices() {
   const CreatorManagementServices = [
@@ -28,6 +29,11 @@ export default function OurServices() {
 
   return (
     <>
+
+        <Head>
+            <title>Live Hosting Agency recruits talented people for live streaming.</title>
+            <meta name="description" content="Live Hosting Agency offers guidance to live-streamers and sub-agents, performance improvement, and boosts apps online presence." />
+        </Head>
       <Header />
 
       <div className="heading-bg text-center border-b-2 border-[#DE0402]">
@@ -71,7 +77,7 @@ export default function OurServices() {
       </div>
 
       <div className="bg-[#FFF7E9] py-12 lg:py-20">
-        <div className="w-[95%] lg:w-[90%] max-w-7xl mx-auto">
+        <div className="w-[90%] max-w-7xl mx-auto">
           <h2 className="text-3xl lg:text-4xl 2xl:text-5xl font-extrabold uppercase text-center">
             Marketing & Promotions
           </h2>
@@ -81,7 +87,7 @@ export default function OurServices() {
               <h3 className="text-2xl lg:text-3xl 2xl:text-4xl font-extrabold uppercase text-center mt-4 lg:mt-8 mb-3">
                 App Promotion
               </h3>
-              <p className="text-base lg:text-lg lg:leading-normal text-center">
+              <p className="text-base lg:text-lg lg:leading-[1.35] text-center">
                 With expertise in the performance marketing and mobile streaming
                 industry, we help other brands with their application promotion
                 services. The focus is to escalate brand awareness amongst the
@@ -101,7 +107,7 @@ export default function OurServices() {
               <h3 className="text-2xl lg:text-3xl 2xl:text-4xl font-extrabold uppercase text-center mt-4 lg:mt-8 mb-3">
                 App Downloads
               </h3>
-              <p className="text-base lg:text-lg lg:leading-normal text-center">
+              <p className="text-base lg:text-lg lg:leading-[1.35] text-center">
                 LH Talent Agency has created a brand reach in the mobile
                 streaming industry. We manage a large dataset of working
                 professionals and can utilize them to boost brand application

@@ -60,14 +60,10 @@ function Blogs() {
   return (
     <>
       <Head>
-        <title>LH Talent Agency Blog: Tips for Streamers</title>
+        <title>LH Talent Agency posts blogs, related to the live-streaming.</title>
         <meta
           name="description"
-          content="LH Talent Agency's blog page provides you with all the needed information with updated details, insights, and tips about the live streaming industry. Explore Now!"
-        />
-        <meta
-          name="keywords"
-          content="Explore the opportunities in the live streaming industry, Step-by-step Guide to become a streaming agent, Guide for creating agency as a streamer"
+          content="LH talent Agency post blogs on regular basis to share all the information related to the world of live-streaming and their collaborated applications."
         />
       </Head>
 
