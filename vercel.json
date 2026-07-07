@@ -1,0 +1,8 @@
+{
+    "rewrites": [
+      {
+        "source": "/blog-images/:path*",
+        "destination": "https://webpanel.store/live-hosting-blog-images/:path*"
+      }
+    ]
+  }

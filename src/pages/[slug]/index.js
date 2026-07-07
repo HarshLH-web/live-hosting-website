@@ -16,7 +16,7 @@ function BlogDetailPage({ blog, tableOfContents, contentBlocks }) {
 
   return (
     <>
-      {/* <Head>
+      <Head>
                 <title>{`${blog.metaTitle} | LH Talent Agency`}</title>
                 <meta name="description" content={blog.metaDescription} />
                 <link rel="canonical" href={`${blog.canonicalUrl}`} />
@@ -36,13 +36,13 @@ function BlogDetailPage({ blog, tableOfContents, contentBlocks }) {
                 <script type="application/ld+json">
                     {JSON.stringify(blog.blogSchema)}
                 </script>
-            </Head> */}
+            </Head>
 
       <Header />
 
       <div
         id="blog-container"
-        className="w-[95%] lg:w-[90%] max-w-7xl mx-auto pb-28 pt-4 lg:pt-24 lg:mt-24 lg:pb-28 bg-gray-50 border-x border-gray-200"
+        className="w-[95%] lg:w-[90%] max-w-7xl mx-auto pb-28 pt-28 lg:pt-24 lg:mt-24 lg:pb-28 bg-gray-50 border-x border-gray-200"
       >
         <div className="relative mx-2 lg:mx-16 h-52 lg:h-72 rounded-xl overflow-hidden">
           <picture>
