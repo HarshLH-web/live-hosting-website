@@ -211,3 +211,62 @@ img{
       margin-bottom: 0.25rem;
   }
 }
+
+
+
+/* Translator CSS */
+
+
+/* Translate styles start */
+body > .skiptranslate > iframe.skiptranslate,
+.goog-te-banner-frame.skiptranslate,
+.goog-tooltip,
+.goog-tooltip:hover,
+.goog-logo-link,
+.goog-te-gadget span {
+  display: none !important;
+}
+
+body {
+  top: 0 !important;
+}
+
+.google-translate-widget .goog-te-gadget {
+  font-size: 0 !important;
+  color: transparent;
+  margin: 0 !important;
+}
+
+.google-translate-widget .goog-te-combo {
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  width: 7.5rem !important;
+  min-height: 2rem !important;
+  border: 1px solid #e5e7eb !important;
+  border-radius: 9999px !important;
+  outline: none !important;
+  background: #ffffff !important;
+  color: #111827 !important;
+  font-weight: 600 !important;
+  cursor: pointer !important;
+  padding: 0.25rem 0.35rem !important;
+  font-size: 0.7rem !important;
+  line-height: 1.2 !important;
+  box-shadow: none !important;
+}
+
+@media (min-width: 640px) {
+  .google-translate-widget .goog-te-combo {
+    width: 8rem !important;
+  }
+}
+
+@media (min-width: 1024px) {
+  .google-translate-widget .goog-te-combo {
+    width: 10rem !important;
+    min-height: 2.5rem !important;
+    padding: 0.5rem 0.75rem !important;
+    font-size: 0.875rem !important;
+  }
+}

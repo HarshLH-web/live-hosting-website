@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+
+
+Sitemap: https://www.joinwithconnect.com/sitemap.xml
+Sitemap: https://www.joinwithconnect.com/sitemap.html
