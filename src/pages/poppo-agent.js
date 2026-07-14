@@ -52,15 +52,15 @@ import { useEffect, useRef, useState } from "react";
 const policyLinks = {
     poppo: [
       {
-        href: "/policies/POPPO AGENCY POLICY - WEBSITE.pdf",
+        href: "/landing-pages/policies/POPPO AGENCY POLICY - WEBSITE.pdf",
         label: "Agency Policy",
       },
       {
-        href: "/policies/POPPO HOST REGISTRATION - WEBSITE.pdf",
+        href: "/landing-pages/policies/POPPO HOST REGISTRATION - WEBSITE.pdf",
         label: "Host Policy",
       },
       {
-        href: "/policies/Poppo Coin Trading - Website.pdf",
+        href: "/landing-pages/policies/Poppo Coin Trading - Website.pdf",
         label: "Coin Seller Policy",
       },
     ],
