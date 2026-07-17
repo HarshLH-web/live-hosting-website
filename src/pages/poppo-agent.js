@@ -691,11 +691,11 @@ useEffect(() => {
                   description:
                     "Connect with other agency partners to share what's working.",
                 },
-                // {
-                //   title: "Revenue Share",
-                //   description:
-                //     "Agency partners receive a revenue share based on their team's activity on the platform, in accordance with Poppo Live's official agency partner terms.",
-                // },
+                {
+                  title: "Revenue Share",
+                  description:
+                    "Agency partners receive a revenue share based on their team's activity on the platform, in accordance with Poppo Live's official agency partner terms.",
+                },
               ].map((benefit, index) => (
                 <div
                   key={index}
@@ -719,19 +719,19 @@ useEffect(() => {
           </div>
         </section>
 
-        <section
+        {/* <section
           id="commission-structure"
           className="bg-linear-to-l from-[#1e29f69f] to-[#FF007B] py-12 lg:py-20 px-4 scroll-mt-20"
         >
           <h2 className="text-2xl lg:text-4xl font-bold text-white mb-6 lg:mb-8 text-center">
             Revenue Share
-          </h2>
+          </h2> */}
           {/* <p className="text-white text-center text-base lg:text-lg leading-snug max-w-3xl mx-auto mb-6">
             Agency partners receive a revenue share based on their team&apos;s
             activity on the platform, in accordance with Poppo Live&apos;s
             official agency partner terms.
           </p> */}
-          <div className="flex flex-col md:flex-row gap-4 lg:gap-16 items-center justify-center">
+          {/* <div className="flex flex-col md:flex-row gap-4 lg:gap-16 items-center justify-center">
             <Image
               src="/landing-pages/connect-agency/10/21/41.svg"
               alt="Agency Revenue Share Structure"
@@ -739,7 +739,7 @@ useEffect(() => {
               height={400}
               className="w-full h-full max-w-lg"
             />
-            {/* <ul className="list-disc pl-5 space-y-1 text-white">
+            <ul className="list-disc pl-5 space-y-1 text-white">
               <li style={{ color: "#ffffff" }}>
                 <strong>Level D:</strong> 4% agency revenue (Under 2 Million
                 Points)
@@ -757,20 +757,20 @@ useEffect(() => {
               <li style={{ color: "#ffffff" }}>
                 <strong>Level S:</strong> 20% agency revenue (Over 150M Points)
               </li>
-            </ul> */}
+            </ul>
 
             
-          </div>
-          <div className="text-center max-w-5xl mx-auto mt-6 space-y-3">
+          </div> */}
+          {/* <div className="text-center max-w-5xl mx-auto mt-6 space-y-3">
             <p className="text-white text-base lg:text-lg leading-tight">Agency partners receive a revenue share based on their team&apos;s activity on the platform, in accordance with Poppo Live&apos;s official agency partner terms</p>
             <p className="text-white text-base lg:text-lg leading-tight">Actual earnings vary based on host activity, engagement, and platform performance, and are not guaranteed.</p>
-            </div>
+            </div> */}
           {/* <p className="lg:mt-6 text-white text-center text-base lg:text-lg leading-tight mt-4 mb-2">
             Actual earnings vary based on host activity, engagement, and platform
             performance, and are not guaranteed.
           </p> */}
 
-        </section>
+        {/* </section> */}
 
         <section
           id="rules"
