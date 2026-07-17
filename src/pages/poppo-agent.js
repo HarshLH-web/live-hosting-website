@@ -8,7 +8,7 @@ import { useEffect, useRef, useState } from "react";
 
 // const POPPO_AGENCY_CLICK = {
 //   siteId: "joinwithconnect.com",
-//   linkId: "https://h5.vshowapi.com/guild/agency_invite/register/?inviter_id=29828616&c=poppo%20%20",
+//   linkId: "https://h5.vshowapi.com/guild/agency_invite/register/?inviter_id=63534458&c=poppo%20%20",
 //   pageUrl: "https://joinwithconnect.com/poppo-agency",
 // } as const;
 
@@ -343,7 +343,7 @@ useEffect(() => {
 
               <div className="flex flex-col lg:flex-row gap-0 lg:gap-4 mx-auto mt-3">
                 <a
-                  href="https://h5.vshowapi.com/guild/agency_invite/register/?inviter_id=29828616&c=poppo%20%20"
+                  href="https://h5.vshowapi.com/guild/agency_invite/register/?inviter_id=63534458&c=poppo%20%20"
                   target="_blank"
                   rel="noopener noreferrer"
                 //   onClick={trackPoppoAgencyClickByLink}
@@ -352,7 +352,7 @@ useEffect(() => {
                   Apply for Agency
                 </a>
                 <a
-                  href="https://invite-poppo.com/bzG7eB"
+                  href="https://static.vshowapi.com/inviteNew/share?c=poppo&link_id=8096839&user_id=63534458&temp_type=1&sys_temp_id=2"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="bg-linear-to-r from-[#E514F0] to-[#000899] hover:bg-white text-white mt-4 lg:mt-2 border-2 border-white px-6 py-2 rounded-full text-base lg:text-lg font-semibold mx-auto lg:mx-0 transition-all duration-300 text-center"
@@ -405,7 +405,7 @@ useEffect(() => {
                         </span>{" "}
                         —{" "}
                         <a
-                          href="https://invite-poppo.com/bzG7eB"
+                          href="https://static.vshowapi.com/inviteNew/share?c=poppo&link_id=8096839&user_id=63534458&temp_type=1&sys_temp_id=2"
                           className="underline text-blue-700 font-semibold"
                         >
                           Download the Poppo Live App
@@ -423,7 +423,7 @@ useEffect(() => {
                         </span>{" "}
                         — Use the official{" "}
                         <a
-                          href="https://h5.vshowapi.com/guild/agency_invite/register/?inviter_id=29828616&c=poppo%20%20"
+                          href="https://h5.vshowapi.com/guild/agency_invite/register/?inviter_id=63534458&c=poppo%20%20"
                           target="_blank"
                           rel="noopener noreferrer"
                         //   onClick={trackPoppoAgencyClickByLink}
@@ -486,7 +486,7 @@ useEffect(() => {
                       <span className="font-semibold">Level 3</span>.
                     </p> */}
                     <a
-                      href="https://h5.vshowapi.com/guild/agency_invite/register/?inviter_id=29828616&c=poppo%20%20"
+                      href="https://h5.vshowapi.com/guild/agency_invite/register/?inviter_id=63534458&c=poppo%20%20"
                       target="_blank"
                       rel="noopener noreferrer"
                     //   onClick={trackPoppoAgencyClickByLink}
@@ -637,7 +637,7 @@ useEffect(() => {
                     </p>
                     <a
                       id="agency-button-after-form-submit"
-                      href="https://h5.vshowapi.com/guild/agency_invite/register/?inviter_id=29828616&c=poppo%20%20"
+                      href="https://h5.vshowapi.com/guild/agency_invite/register/?inviter_id=63534458&c=poppo%20%20"
                       target="_blank"
                       rel="noopener noreferrer"
                       onClick={() =>
@@ -824,7 +824,7 @@ useEffect(() => {
           </h2>
           <p className="text-center text-black text-base lg:text-xl">
             Give new creators your Agency Code:{" "}
-            <span className="font-bold text-black text-lg">29828616</span>
+            <span className="font-bold text-black text-lg">63534458</span>
           </p>
           <p className="text-center text-black text-base lg:text-xl border-y border-black my-2 py-2 mx-auto">
             Guide them to enter this code in the{" "}
@@ -834,20 +834,20 @@ useEffect(() => {
           <p className="text-center text-black text-base lg:text-xl">
             Questions? Contact our support team at{" "}
             <a
-              href="https://api.whatsapp.com/send/?phone=919650889239&text&type=phone_number&app_absent=0"
+              href="https://api.whatsapp.com/send/?phone=917065384660&text&type=phone_number&app_absent=0"
               target="_blank"
               rel="noopener noreferrer"
               className="text-blue-700 underline font-semibold"
             >
-              +91 9650889239
+              +91 7065384660
             </a>{" "}
             or{" "}
-            <a
+            {/* <a
               href="mailto:support@connectwithapps.com"
               className="text-blue-700 underline font-semibold"
             >
               support@connectwithapps.com
-            </a>
+            </a> */}
             .
           </p>
         </section>
@@ -912,7 +912,7 @@ useEffect(() => {
 
         <section className="text-center pt-4 lg:pt-8 px-4">
           <a
-            href="https://h5.vshowapi.com/guild/agency_invite/register/?inviter_id=29828616&c=poppo%20%20"
+            href="https://h5.vshowapi.com/guild/agency_invite/register/?inviter_id=63534458&c=poppo%20%20"
             target="_blank"
             rel="noopener noreferrer"
             // onClick={trackPoppoAgencyClickByLink}
