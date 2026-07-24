@@ -224,13 +224,13 @@ useEffect(() => {
       <div className="max-w-[90%] lg:max-w-[95%] xl:max-w-[85%] mx-auto py-2 lg:py-4 flex items-center justify-between">
         {/* Logo */}
         <Link href="#">
-          {/* <Image
-            src="/landing-pages/logo2.png"
+          <Image
+            src="/logo.png"
             alt="Join with Connect Logo"
-            width={200}
-            height={200}
-            className="w-20 md:w-20 lg:w-28 2xl:w-32 lg:pt-0 mx-auto block"
-          /> */}
+            width={100}
+            height={100}
+            className="w-12 md:w-12 lg:w-16 2xl:w-[4.5rem] lg:pt-0 mx-auto block"
+          />
         </Link>
 
         <nav className="flex min-w-0 items-center gap-3 sm:gap-4 lg:gap-6">
@@ -464,27 +464,6 @@ useEffect(() => {
                       . We&apos;re available to answer questions about the
                       onboarding process.
                     </p>
-
-                    {/* <p className="text-[1rem] leading-[1.35] md:text-lg text-left">
-                      <span className="font-semibold">Note:</span> Users in the
-                      South Asian region, including Afghanistan, Bangladesh,
-                      Bhutan, India, Maldives, Nepal, Pakistan, Sri Lanka, etc.,
-                      need to reach{" "}
-                      <span className="font-semibold">Wealth Level 3</span> to
-                      become a Poppo Agent.{" "}
-                      <span className="font-semibold"> Kindly contact us</span>{" "}
-                      at{" "}
-                      <a
-                        className="text-blue-700 underline font-semibold"
-                        href="https://api.whatsapp.com/send/?phone=919650889239&text&type=phone_number&app_absent=0"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        +919650889239.
-                      </a>{" "}
-                      to become agent we are going to help you to reach at{" "}
-                      <span className="font-semibold">Level 3</span>.
-                    </p> */}
                     <a
                       href="https://h5.vshowapi.com/guild/agency_invite/register/?inviter_id=63534458&c=poppo%20%20"
                       target="_blank"
@@ -500,161 +479,6 @@ useEffect(() => {
             </div>
           </div>
         </section>
-
-        {/* Registration Form Section */}
-        {/* <section
-          id="registration-form"
-          className="scroll-mt-16 pt-12 pb-12 px-4 bg-linear-to-r from-[#DDCCFF] to-[#FFEDF9]"
-        >
-          <div className="max-w-5xl mx-auto">
-            <div className="bg-white rounded-3xl border border-gray-200 shadow-sm px-4 py-6 lg:px-8 lg:py-10">
-              <h2 className="text-2xl lg:text-4xl font-bold text-black text-center mb-2">
-                Finish Up: Submit Your Details
-              </h2>
-              <p className="text-center text-gray-700 max-w-2xl mx-auto mb-6">
-                Enter your details below. We&apos;ll send your submission to our
-                system and you can continue the verification steps in the app.
-              </p>
-
-              <form
-                onSubmit={handleRegistrationSubmit}
-                className="max-w-3xl mx-auto"
-              >
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-3 lg:gap-4">
-                  <div className="relative">
-                    <input
-                      id="name"
-                      name="name"
-                      type="text"
-                      value={formValues.name}
-                      onChange={handleFormChange}
-                      required
-                      placeholder="Full name"
-                      className="w-full rounded-full border border-gray-300 bg-white px-4 py-2.5 focus:outline-none focus:ring-2 focus:ring-[#E514F0]"
-                    />
-                  </div>
-
-                  <div className="relative">
-                    <input
-                      id="email"
-                      name="email"
-                      type="email"
-                      value={formValues.email}
-                      onChange={handleFormChange}
-                      required
-                      placeholder="Email address"
-                      className="w-full rounded-full border border-gray-300 bg-white px-4 py-2.5 focus:outline-none focus:ring-2 focus:ring-[#E514F0]"
-                    />
-                  </div>
-
-                  <div className="relative">
-                    <input
-                      id="phone"
-                      name="phone"
-                      type="tel"
-                      value={formValues.phone}
-                      onChange={handleFormChange}
-                      required
-                      placeholder="Phone number (include country code)"
-                      className="w-full rounded-full border border-gray-300 bg-white px-4 py-2.5 focus:outline-none focus:ring-2 focus:ring-[#E514F0]"
-                    />
-                  </div>
-
-                  <div className="relative">
-                    <input
-                      id="app_id"
-                      name="app_id"
-                      type="text"
-                      inputMode="numeric"
-                      value={formValues.app_id}
-                      onChange={handleFormChange}
-                      required
-                      placeholder="Your Poppo ID"
-                      className="w-full rounded-full border border-gray-300 bg-white px-4 py-2.5 focus:outline-none focus:ring-2 focus:ring-[#E514F0]"
-                    />
-                  </div>
-
-                  <div className="relative">
-                    <select
-                      id="role"
-                      name="role"
-                      value={formValues.role}
-                      onChange={handleFormChange}
-                      required
-                      className="w-full rounded-full border border-gray-300 bg-white px-4 py-2.5 focus:outline-none focus:ring-2 focus:ring-[#E514F0]"
-                    >
-                      <option value="Agency Owner">Agency</option>
-                      <option value="Recruiter/Manager">Host</option>
-                      <option value="Other">User</option>
-                    </select>
-                  </div>
-
-                  <div className="relative">
-                    <input
-                      id="country"
-                      name="country"
-                      type="text"
-                      value={formValues.country}
-                      onChange={handleFormChange}
-                      required
-                      placeholder="Country"
-                      className="w-full rounded-full border border-gray-300 bg-white px-4 py-2.5 focus:outline-none focus:ring-2 focus:ring-[#E514F0]"
-                    />
-                  </div>
-                </div>
-
-                {submitStatus && (
-                  <div
-                    className={`mt-4 text-center text-sm font-medium ${
-                      submitStatus.type === "success"
-                        ? "text-green-700"
-                        : "text-red-700"
-                    }`}
-                  >
-                    {submitStatus.message}
-                  </div>
-                )}
-
-                <div className="flex flex-col sm:flex-row items-center justify-center gap-3 mt-6">
-                  <button
-                    type="submit"
-                    disabled={isSubmitting}
-                    className="w-full sm:w-auto bg-linear-to-r from-[#E514F0] to-[#000899] text-white px-6 py-2.5 rounded-full text-base font-semibold text-center transition-all duration-300 disabled:opacity-60"
-                  >
-                    {isSubmitting ? "Submitting..." : "Submit"}
-                  </button>
-                </div>
-
-                {submitStatus?.type === "success" && (
-                  <div className="mt-8 border-t border-gray-200 pt-6 text-center">
-                    <h3 className="text-lg lg:text-xl font-semibold text-black mb-2">
-                      Final Step: Join the Agency
-                    </h3>
-                    <p className="text-sm lg:text-base text-gray-700 mb-4 max-w-xl mx-auto">
-                      Your details have been submitted successfully. Click the
-                      button below to open the official Poppo Live agency page
-                      and complete your agency joining process.
-                    </p>
-                    <a
-                      id="agency-button-after-form-submit"
-                      href="https://h5.vshowapi.com/guild/agency_invite/register/?inviter_id=63534458&c=poppo%20%20"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      onClick={() =>
-                        trackPoppoAgencyClickById(
-                          "agency-button-after-form-submit",
-                        )
-                      }
-                      className="inline-block bg-linear-to-r from-[#E514F0] to-[#000899] text-white px-6 py-2.5 rounded-full text-base font-semibold text-center transition-all duration-300"
-                    >
-                      Apply for Agency
-                    </a>
-                  </div>
-                )}
-              </form>
-            </div>
-          </div>
-        </section> */}
 
         <section
           id="why-partner-with-us"
@@ -718,59 +542,6 @@ useEffect(() => {
             </div>
           </div>
         </section>
-
-        {/* <section
-          id="commission-structure"
-          className="bg-linear-to-l from-[#1e29f69f] to-[#FF007B] py-12 lg:py-20 px-4 scroll-mt-20"
-        >
-          <h2 className="text-2xl lg:text-4xl font-bold text-white mb-6 lg:mb-8 text-center">
-            Revenue Share
-          </h2> */}
-          {/* <p className="text-white text-center text-base lg:text-lg leading-snug max-w-3xl mx-auto mb-6">
-            Agency partners receive a revenue share based on their team&apos;s
-            activity on the platform, in accordance with Poppo Live&apos;s
-            official agency partner terms.
-          </p> */}
-          {/* <div className="flex flex-col md:flex-row gap-4 lg:gap-16 items-center justify-center">
-            <Image
-              src="/landing-pages/connect-agency/10/21/41.svg"
-              alt="Agency Revenue Share Structure"
-              width={600}
-              height={400}
-              className="w-full h-full max-w-lg"
-            />
-            <ul className="list-disc pl-5 space-y-1 text-white">
-              <li style={{ color: "#ffffff" }}>
-                <strong>Level D:</strong> 4% agency revenue (Under 2 Million
-                Points)
-              </li>
-              <li style={{ color: "#ffffff" }}>
-                <strong>Level C:</strong> 8% agency revenue (2M to 10M Points)
-              </li>
-              <li style={{ color: "#ffffff" }}>
-                <strong>Level B:</strong> 12% agency revenue (10M to 50M Points)
-              </li>
-              <li style={{ color: "#ffffff" }}>
-                <strong>Level A:</strong> 16% agency revenue (50M to 150M
-                Points)
-              </li>
-              <li style={{ color: "#ffffff" }}>
-                <strong>Level S:</strong> 20% agency revenue (Over 150M Points)
-              </li>
-            </ul>
-
-            
-          </div> */}
-          {/* <div className="text-center max-w-5xl mx-auto mt-6 space-y-3">
-            <p className="text-white text-base lg:text-lg leading-tight">Agency partners receive a revenue share based on their team&apos;s activity on the platform, in accordance with Poppo Live&apos;s official agency partner terms</p>
-            <p className="text-white text-base lg:text-lg leading-tight">Actual earnings vary based on host activity, engagement, and platform performance, and are not guaranteed.</p>
-            </div> */}
-          {/* <p className="lg:mt-6 text-white text-center text-base lg:text-lg leading-tight mt-4 mb-2">
-            Actual earnings vary based on host activity, engagement, and platform
-            performance, and are not guaranteed.
-          </p> */}
-
-        {/* </section> */}
 
         <section
           id="rules"
