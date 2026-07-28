@@ -1,788 +1,948 @@
-'use client'
-import Image from "next/image";
-import Link from "next/link";
-import { useEffect, useRef, useState } from "react";
-// import Header from "@/components/layout/Header";
-// import PoppoHeader from "../components/PoppoHeader";
-// import Footer from "@/components/layout/Footer";
+'use client';
 
-// const POPPO_AGENCY_CLICK = {
-//   siteId: "joinwithconnect.com",
-//   linkId: "https://h5.vshowapi.com/guild/agency_invite/register/?inviter_id=63534458&c=poppo%20%20",
-//   pageUrl: "https://joinwithconnect.com/poppo-agency",
-// } as const;
+import { useEffect, useRef, useState, useSyncExternalStore } from 'react';
+import Head from 'next/head';
+import { Inter, Orbitron, Space_Grotesk } from 'next/font/google';
+import Image from 'next/image';
 
-/** Track by link only: { siteId, linkId, pageUrl }. */
-// function trackPoppoAgencyClickByLink() {
-//   fetch("https://webpanel.store/api/connect-clickStats", {
-//     method: "POST",
-//     headers: { "Content-Type": "application/json" },
-//     body: JSON.stringify({
-//       siteId: POPPO_AGENCY_CLICK.siteId,
-//       linkId: POPPO_AGENCY_CLICK.linkId,
-//       pageUrl: POPPO_AGENCY_CLICK.pageUrl,
-//     }),
-//     keepalive: true,
-//   })
-//     .then(async (res) => {
-//       const text = await res.text();
-//       // console.log("click track status:", res.status, text);
-//       if (!res.ok) throw new Error(text);
-//     })
-//     .catch((err) => console.error("click track failed:", err));
-// }
+const inter = Inter({
+  subsets: ['latin'],
+  weight: ['400', '500', '600', '700'],
+  display: 'swap',
+});
 
-/** Track by element id only: { siteId, elementId, pageUrl }. */
-// function trackPoppoAgencyClickById(elementId: string) {
-//   void fetch("https://webpanel.store/api/connect-clickStats", {
-//     method: "POST",
-//     headers: { "Content-Type": "application/json" },
-//     body: JSON.stringify({
-//       siteId: POPPO_AGENCY_CLICK.siteId,
-//       elementId,
-//       pageUrl: POPPO_AGENCY_CLICK.pageUrl,
-//     }),
-//     keepalive: true,
-//   }).catch(() => {
-//     /* ignore */
-//   });
-// }
+const spaceGrotesk = Space_Grotesk({
+  subsets: ['latin'],
+  weight: ['500', '600', '700'],
+  display: 'swap',
+});
 
+const orbitron = Orbitron({
+  subsets: ['latin'],
+  weight: ['600', '700', '800'],
+  display: 'swap',
+});
 
-const policyLinks = {
-    poppo: [
-      {
-        href: "/landing-pages/Policies/POPPO AGENCY POLICY - WEBSITE.pdf",
-        label: "Agency Policy",
-      },
-      {
-        href: "/landing-pages/Policies/POPPO HOST REGISTRATION - WEBSITE.pdf",
-        label: "Host Policy",
-      },
-      {
-        href: "/landing-pages/Policies/Poppo Coin Trading - Website.pdf",
-        label: "Coin Seller Policy",
-      },
-    ],
-  };
+const AGENCY_APPLY_URL =
+  'https://h5.vshowapi.com/guild/agency_invite/register/?inviter_id=29828616&c=poppo%20%20';
+const DOWNLOAD_APP_URL =
+  'https://invite-poppo.com/bzG7eB';
+const WHATSAPP_URL =
+  'https://api.whatsapp.com/send/?phone=917065384660&text&type=phone_number&app_absent=0';
+const AGENCY_CODE = '29828616';
+const TRANSLATE_COOKIE = 'googtrans';
 
-  const GOOGLE_TRANSLATE_SCRIPT_ID = "google-translate-script";
+const LANGUAGES = [
+  { code: 'en', label: 'English' },
+  { code: 'hi', label: 'Hindi' },
+  { code: 'bn', label: 'Bengali' },
+  { code: 'tl', label: 'Filipino' },
+];
 
+const POLICIES = [
+  {
+    text: 'Host Policy',
+    url: '/Policies/POPPO HOST REGISTRATION - WEBSITE.pdf',
+  },
+  {
+    text: 'Agency Policy',
+    url: '/Policies/POPPO AGENCY POLICY - WEBSITE.pdf',
+  },
+  {
+    text: 'Coin Seller Policy',
+    url: '/Policies/Poppo Coin Trading - Website.pdf',
+  },
+  {
+    text: 'Rocket Host and Star Host Policy',
+    url: '/Policies/Poppo rocket host and star host policy - website.pdf',
+  },
+];
 
-export default function Poppo() {
-    const [showTranslator, setShowTranslator] = useState(true);
-    const [hidePolicyDropdown, setHidePolicyDropdown] = useState(false);
-//   const [formValues, setFormValues] = useState({
-//     name: "",
-//     email: "",
-//     phone: "",
-//     app_id: "",
-//     role: "Agency",
-//     country: "",
-//   });
-//   const [isSubmitting, setIsSubmitting] = useState(false);
-//   const [submitStatus, setSubmitStatus] = useState<
-//     | { type: "success"; message: string }
-//     | { type: "error"; message: string }
-//     | null
-//   >(null);
+function readTranslateCookie() {
+  if (typeof document === 'undefined') return 'en';
 
-//   const handleFormChange = (
-//     e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>,
-//   ) => {
-//     const { name, value } = e.target;
-//     setFormValues((prev) => ({ ...prev, [name]: value }));
-//   };
+  const match = document.cookie.match(/(?:^|;\s*)googtrans=([^;]+)/);
+  if (!match) return 'en';
 
-//   const handleRegistrationSubmit = async (
-//     e: React.FormEvent<HTMLFormElement>,
-//   ) => {
-//     e.preventDefault();
-//     setSubmitStatus(null);
-//     setIsSubmitting(true);
+  const value = decodeURIComponent(match[1]);
+  const parts = value.split('/').filter(Boolean);
+  const code = parts[parts.length - 1];
 
-//     try {
-//       const response = await fetch("/api/connect-poppo-data", {
-//         method: "POST",
-//         headers: { "Content-Type": "application/json" },
-//         body: JSON.stringify(formValues),
-//       });
-
-//       const data = (await response.json().catch(() => null)) as
-//         | { ok: true }
-//         | { ok: false; error?: string }
-//         | null;
-
-//       if (!response.ok || !data || (data as { ok: boolean }).ok !== true) {
-//         const message =
-//           (data && "error" in data && data.error) ||
-//           "Something went wrong. Please try again.";
-//         setSubmitStatus({ type: "error", message });
-//         return;
-//       }
-
-//       setSubmitStatus({
-//         type: "success",
-//         message: "Submitted successfully.",
-//       });
-//       setFormValues({
-//         name: "",
-//         email: "",
-//         phone: "",
-//         app_id: "",
-//         role: "Agency Owner",
-//         country: "",
-//       });
-//     } catch (err) {
-//       const message = err instanceof Error ? err.message : "Network error";
-//       setSubmitStatus({ type: "error", message });
-//     } finally {
-//       setIsSubmitting(false);
-//     }
-//   };
-
-const [isMenuOpen, setIsMenuOpen] = useState(false);
-
-const policyDropdownRef = useRef(null);
-
-const translateId = `google_translate_${GOOGLE_TRANSLATE_SCRIPT_ID}`;
-
-// const currentLogo = logoConfig[logoVariant];
-const currentPolicies = policyLinks.poppo;
-
-// outside click close
-useEffect(() => {
-  const close = (e) => {
-    const target = e.target;
-
-    if (
-      isMenuOpen &&
-      policyDropdownRef.current &&
-      !policyDropdownRef.current.contains(target)
-    ) {
-      setIsMenuOpen(false);
-    }
-  };
-
-  document.addEventListener("mousedown", close);
-  return () => document.removeEventListener("mousedown", close);
-}, [isMenuOpen]);
-
-// google translator
-useEffect(() => {
-  if (!showTranslator) return;
-
-  let retryCount = 0;
-  const win = window;
-
-  const loadTranslator = () => {
-    const TranslateElement = win.google?.translate?.TranslateElement;
-    const targetElement = document.getElementById(translateId);
-
-    if (!TranslateElement || !targetElement) {
-      if (retryCount < 20) {
-        retryCount += 1;
-        setTimeout(loadTranslator, 200);
-      }
-      return;
-    }
-
-    if (targetElement.childElementCount > 0) {
-      return;
-    }
-
-    new TranslateElement(
-      {
-        pageLanguage: "en",
-        includedLanguages: "en,hi,tl,bn",
-        autoDisplay: false,
-      },
-      translateId,
-    );
-  };
-
-  win.googleTranslateElementInit = loadTranslator;
-
-  if (!document.getElementById(GOOGLE_TRANSLATE_SCRIPT_ID)) {
-    const script = document.createElement("script");
-    script.id = GOOGLE_TRANSLATE_SCRIPT_ID;
-    script.src =
-      "https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit";
-    script.async = true;
-    script.onerror = () => {
-      setTimeout(loadTranslator, 200);
-    };
-    document.body.appendChild(script);
-  } else {
-    loadTranslator();
+  if (code && LANGUAGES.some((lang) => lang.code === code)) {
+    return code;
   }
-}, [showTranslator, translateId]);
+
+  return 'en';
+}
+
+function clearTranslateCookies() {
+  const hostname = window.location.hostname;
+  const expired = 'Thu, 01 Jan 1970 00:00:00 GMT';
+  const paths = ['/', window.location.pathname];
+  const domains = ['', hostname, `.${hostname}`];
+
+  for (const path of paths) {
+    document.cookie = `${TRANSLATE_COOKIE}=; expires=${expired}; path=${path}`;
+    for (const domain of domains) {
+      if (!domain) continue;
+      document.cookie = `${TRANSLATE_COOKIE}=; expires=${expired}; path=${path}; domain=${domain}`;
+    }
+  }
+}
+
+function writeTranslateCookie(code) {
+  clearTranslateCookies();
+
+  if (code === 'en') return;
+
+  const value = `/en/${code}`;
+  document.cookie = `${TRANSLATE_COOKIE}=${value}; path=/`;
+
+  const hostname = window.location.hostname;
+  if (hostname && hostname !== 'localhost') {
+    document.cookie = `${TRANSLATE_COOKIE}=${value}; path=/; domain=${hostname}`;
+  }
+}
+
+function subscribeTranslateCookie() {
+  return () => {};
+}
+
+const FAQS = [
+  {
+    q: 'Does it cost anything to join as an agency partner?',
+    a: "No. There is no fee to register as an agency partner. Compensation is performance-based, per Poppo Live's official terms.",
+  },
+  {
+    q: 'What support do I get?',
+    a: "We provide onboarding guidance and ongoing support to help you understand and follow Poppo Live's agency requirements.",
+  },
+  {
+    q: 'How is commission paid?',
+    a: "Payouts follow Poppo Live's standard schedule. Full details are shared during onboarding.",
+  },
+  {
+    q: 'What are the requirements for creators on my team?',
+    a: 'Creators must be 18 or older, complete identity verification, and follow all Poppo Live community guidelines.',
+  },
+  {
+    q: 'What happens if a creator on my team violates platform rules?',
+    a: "As the managing agency partner, you're responsible for your team's compliance. Repeated violations can result in penalties to your agency account.",
+  },
+];
+
+const BENEFITS = [
+  {
+    num: '01',
+    title: 'Onboarding Support',
+    desc: 'Account setup, application submission, and understanding agency requirements.',
+  },
+  {
+    num: '02',
+    title: 'Ongoing Guidance',
+    desc: 'Our team answers your questions as you manage your host roster and grow.',
+  },
+  {
+    num: '03',
+    title: 'Global Platform',
+    desc: 'Poppo Live connects creators with audiences worldwide.',
+  },
+  {
+    num: '04',
+    title: 'Flexible Operations',
+    desc: 'Run your agency activities on your own schedule, from your phone or laptop.',
+  },
+  {
+    num: '05',
+    title: 'Partner Community',
+    desc: "Connect with other agency partners to share what's working.",
+  },
+];
+
+const RULES = [
+  'Everyone in your team must be at least 18 years old and complete identity verification.',
+  'No adult content, hate speech, or unlawful activity is permitted. Zero-tolerance policy.',
+  'As an agency partner, you are responsible for ensuring your team follows platform rules.',
+  'Do not attempt to recruit creators already managed by another Poppo agency.',
+  'Keep your account credentials secure.',
+];
+
+const BAR_HEIGHTS = ['35%', '55%', '40%', '80%', '60%', '95%', '50%', '70%'];
+
+const GRADIENT = 'bg-linear-to-r from-[#00C2FF] via-[#7B2FFF] to-[#FF2E97]';
+const LINK =
+  'text-[#7B2FFF] font-bold underline underline-offset-2 hover:opacity-80';
+
+function HudPanel({ children, className = '' }) {
+  return (
+    <div
+      className={`relative bg-white border border-[#DCE3F2] rounded-md ${className}`}
+    >
+      <span className="absolute -top-px -left-px z-2 w-3.5 h-3.5 border-t-2 border-l-2 border-[#00C2FF]" />
+      <span className="absolute -bottom-px -right-px z-2 w-3.5 h-3.5 border-b-2 border-r-2 border-[#FF2E97]" />
+      {children}
+    </div>
+  );
+}
+
+function Label({ children, className = '' }) {
+  return (
+    <div
+      className={`${orbitron.className} text-[0.66rem] uppercase tracking-[0.14em] font-bold inline-flex items-center gap-2 ${className}`}
+    >
+      <span className="w-[7px] h-[7px] bg-[#00C2FF] rounded-[1px] rotate-45 shrink-0" />
+      {children}
+    </div>
+  );
+}
+
+function GradientText({ children, className = '' }) {
+  return (
+    <span
+      className={`${GRADIENT} bg-clip-text text-transparent ${className}`}
+    >
+      {children}
+    </span>
+  );
+}
+
+function BtnPrimary({ href, children, className = '' }) {
+  return (
+    <a
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+      className={`${orbitron.className} ${GRADIENT} inline-block text-white font-bold text-[0.8rem] tracking-[0.03em] py-[15px] px-[26px] rounded-lg no-underline shadow-[0_10px_30px_rgba(0,194,255,0.35)] hover:-translate-y-0.5 hover:shadow-[0_14px_34px_rgba(255,46,151,0.3)] transition duration-150 ${className}`}
+    >
+      {children}
+    </a>
+  );
+}
+
+function BtnGhost({ href, children, className = '' }) {
+  return (
+    <a
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+      className={`${orbitron.className} inline-block bg-white text-[#0B0F1E] font-bold text-[0.8rem] tracking-[0.03em] py-[15px] px-[26px] rounded-lg no-underline border-[1.5px] border-[#DCE3F2] hover:border-[#00C2FF] hover:-translate-y-0.5 transition duration-150 ${className}`}
+    >
+      {children}
+    </a>
+  );
+}
+
+function SectionHead({ label, title }) {
+  return (
+    <div className="max-w-[640px] mx-auto mb-10 text-center">
+      <Label className="justify-center">{label}</Label>
+      <h2
+        className={`${spaceGrotesk.className} text-[clamp(1.6rem,3vw,2.15rem)] text-[#0B0F1E] mt-3 font-bold`}
+      >
+        {title}
+      </h2>
+    </div>
+  );
+}
+
+function NoteBox({ children, className = '' }) {
+  return (
+    <div
+      className={`mt-[26px] border border-[#DCE3F2] border-l-[3px] border-l-[#00C2FF] rounded-r-lg py-4 px-5 text-[0.86rem] text-[#525A72] max-w-[760px] mx-auto bg-[#FAFBFF] ${className}`}
+    >
+      {children}
+    </div>
+  );
+}
+
+function Wrap({ children, className = '' }) {
+  return (
+    <div className={`max-w-[1120px] mx-auto px-6 relative z-1 ${className}`}>
+      {children}
+    </div>
+  );
+}
+
+function StepNum({ children }) {
+  return (
+    <div
+      className={`${orbitron.className} ${GRADIENT} text-[0.9rem] font-bold text-white w-[34px] h-[34px] rounded-[7px] flex items-center justify-center shrink-0`}
+    >
+      {children}
+    </div>
+  );
+}
+
+function VisualStepNum({ children }) {
+  return (
+    <span
+      className={`${orbitron.className} ${GRADIENT} text-[0.9rem] font-bold text-white w-[30px] h-[30px] rounded-md flex items-center justify-center shrink-0`}
+    >
+      {children}
+    </span>
+  );
+}
+
+function VmPill({ children }) {
+  return (
+    <div className="bg-[#F0F3FA] rounded-md py-1.5 px-2 text-[0.6rem] text-[#525A72] font-semibold flex items-center gap-1.5">
+      {children}
+    </div>
+  );
+}
+
+function fallbackCopy(text) {
+  const ta = document.createElement('textarea');
+  ta.value = text;
+  ta.style.position = 'fixed';
+  ta.style.opacity = '0';
+  document.body.appendChild(ta);
+  ta.select();
+  try {
+    document.execCommand('copy');
+  } catch {
+    /* ignore */
+  }
+  document.body.removeChild(ta);
+}
+
+export default function PoppoAgent() {
+  const [openFaq, setOpenFaq] = useState(null);
+  const [copied, setCopied] = useState(false);
+  const [openPolicy, setOpenPolicy] = useState(false);
+  const [openLang, setOpenLang] = useState(false);
+  const currentLang = useSyncExternalStore(
+    subscribeTranslateCookie,
+    readTranslateCookie,
+    () => 'en'
+  );
+  const policyRef = useRef(null);
+  const langRef = useRef(null);
+
+  useEffect(() => {
+    window.googleTranslateElementInit = () => {
+      if (!window.google?.translate?.TranslateElement) return;
+      new window.google.translate.TranslateElement(
+        {
+          pageLanguage: 'en',
+          includedLanguages: LANGUAGES.map((l) => l.code).join(','),
+          autoDisplay: false,
+        },
+        'google_translate_element'
+      );
+    };
+
+    if (!document.getElementById('google-translate-script')) {
+      const script = document.createElement('script');
+      script.id = 'google-translate-script';
+      script.src =
+        'https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
+      script.async = true;
+      document.body.appendChild(script);
+    } else if (window.google?.translate?.TranslateElement) {
+      window.googleTranslateElementInit();
+    }
+  }, []);
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (policyRef.current && !policyRef.current.contains(event.target)) {
+        setOpenPolicy(false);
+      }
+      if (langRef.current && !langRef.current.contains(event.target)) {
+        setOpenLang(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
+
+  const toggleFaq = (index) => {
+    setOpenFaq((prev) => (prev === index ? null : index));
+  };
+
+  const selectLanguage = (code) => {
+    writeTranslateCookie(code);
+    setOpenLang(false);
+    window.location.reload();
+  };
+
+  const copyCode = async () => {
+    try {
+      if (navigator.clipboard?.writeText) {
+        await navigator.clipboard.writeText(AGENCY_CODE);
+      } else {
+        fallbackCopy(AGENCY_CODE);
+      }
+    } catch {
+      fallbackCopy(AGENCY_CODE);
+    }
+    setCopied(true);
+    setTimeout(() => setCopied(false), 1500);
+  };
 
   return (
     <>
-          <header className="fixed top-0 z-50 w-full bg-white border-b">
-      <div className="max-w-[90%] lg:max-w-[95%] xl:max-w-[85%] mx-auto py-2 lg:py-4 flex items-center justify-between">
-        {/* Logo */}
-        <Link href="#">
-          <Image
-            src="/logo.png"
-            alt="Join with Connect Logo"
-            width={100}
-            height={100}
-            className="w-12 md:w-12 lg:w-16 2xl:w-[4.5rem] lg:pt-0 mx-auto block"
-          />
-        </Link>
+      <Head>
+        <title>Become a Poppo Live Agency Partner — Live Hosting</title>
+        <meta
+          name="description"
+          content="Become a Poppo Live agency partner with Live Hosting. Get onboarding support, guidance, and ongoing assistance as an independent agency partner."
+        />
+      </Head>
 
-        <nav className="flex min-w-0 items-center gap-3 sm:gap-4 lg:gap-6">
-          <Link
-            href="/poppo-agent"
-            className="shrink-0 text-sm font-medium sm:text-base"
-          >
-            Agency
-          </Link>
+      <div
+        className={`${inter.className} relative min-h-screen text-[#0B0F1E] leading-relaxed select-text bg-[#F3F6FC] bg-[radial-gradient(900px_500px_at_100%_-10%,rgba(123,47,255,0.08),transparent_60%),radial-gradient(700px_400px_at_-10%_20%,rgba(0,194,255,0.08),transparent_60%)] bg-fixed`}
+      >
+        {/* Hidden Google Translate mount */}
+        <div id="google_translate_element" className="sr-only" aria-hidden />
 
-          {showTranslator && (
-            <div className="google-translate-widget">
-              <div id={translateId} />
-            </div>
-          )}
-
-          {!hidePolicyDropdown && (
-            <div ref={policyDropdownRef} className="relative shrink-0 mt-2">
-              <button
-                type="button"
-                onClick={() => setIsMenuOpen(!isMenuOpen)}
-                aria-haspopup="true"
-                aria-expanded={isMenuOpen}
-              >
-                <Image
-                  src="/landing-pages/Download-icon.svg"
-                  alt="Download"
-                  width={20}
-                  height={20}
-                  className="lg:h-[22px] lg:w-[22px]"
-                />
-              </button>
-
-              {isMenuOpen && (
-                <div className="absolute right-0 mt-2 w-56 bg-white rounded-xl shadow-lg border z-50">
-                  {currentPolicies.map((item, i) => (
-                    <a
-                      key={item.href}
-                      href={item.href}
-                      download
-                      onClick={() => setIsMenuOpen(false)}
-                      className={`block px-4 py-3 text-sm hover:bg-gray-100 ${
-                        i !== currentPolicies.length - 1 ? "border-b" : ""
-                      }`}
-                    >
-                      {item.label}
-                    </a>
-                  ))}
-                </div>
-              )}
-            </div>
-          )}
-        </nav>
-      </div>
-
-    </header>
-
-      <main>
+        {/* Grid overlay */}
         <div
-          className="mx-auto min-h-[90vh] flex items-center justify-center bg-cover bg-center pt-24 lg:pt-32"
-          style={{
-            backgroundImage: "url('/landing-pages/connect-agency/new-img/benefits-bg.webp')",
-          }}
-        >
-          <div className="flex flex-col lg:flex-row justify-center h-auto md:px-8 lg:px-8 gap-4 lg:gap-0 w-full lg:w-[85%] max-w-6xl mx-auto pt-16 pb-16 px-4 md:pt-8">
-            {/* <Image
-              src="/landing-pages/logo2.png"
-              alt="Join with Connect Logo"
-              width={224}
-              height={224}
-              className="w-40 md:w-44 lg:w-48 2xl:w-56 lg:pt-0 md:pb-8 mx-auto block lg:hidden"
-            /> */}
-            {/* <p>Connect Tect</p> */}
+          className="fixed inset-0 pointer-events-none z-0 bg-[linear-gradient(rgba(11,15,30,0.035)_1px,transparent_1px),linear-gradient(90deg,rgba(11,15,30,0.035)_1px,transparent_1px)] bg-size-[42px_42px] [mask-image:radial-gradient(1000px_700px_at_50%_0%,#000_20%,transparent_75%)]"
+          aria-hidden
+        />
 
-            {/* Image Section */}
-            {/* <div className="mb-0 xl:px-16 xl:mt-0 mx-auto lg:w-2/5 pl-8 lg:pl-0">
-              <Image
-                src="/landing-pages/connect-agency/banner-main.webp"
-                alt="Join with Connect Banner"
-                width={320}
-                height={320}
-                className="w-full h-full max-w-48 lg:max-w-80 2xl:max-w-80"
-              />
-            </div> */}
-
-            {/* Text Section */}
-            <div className="lg:text-left text-center text-white flex flex-col items-start justify-center lg:w-4/5">
-              {/* <Image
-                src="/landing-pages/connect-agency/logo-white.svg"
-                alt="Join with Connect Logo"
-                width={224}
-                height={224}
-                className="w-36 md:w-44 lg:w-48 2xl:w-56 lg:pt-0 md:pb-8 mx-auto hidden lg:block"
-              /> */}
-              <h1
-                className="text-2xl sm:text-3xl lg:text-4xl 2xl:text-[40px] font-bold mb-4 lg:leading-[1.2] text-center mx-auto"
-                style={{ minHeight: "2rem" }}
-              >
-                Become a Poppo Live Agency Partner
-              </h1>
-
-              <p
-                className="mb-2 md:mb-4 text-[1rem] leading-[1.4] md:text-md lg:text-[18px] 2xl:text-[20px] text-center lg:mt-2"
-                style={{ minHeight: "1.5rem" }}
-              >
-                Manage a team of live-streaming creators on Poppo Live. Get
-                onboarding support, guidance, and ongoing assistance as an
-                independent agency partner.
-              </p>
-
-              <div className="flex flex-col lg:flex-row gap-0 lg:gap-4 mx-auto mt-3">
-                <a
-                  href="https://h5.vshowapi.com/guild/agency_invite/register/?inviter_id=63534458&c=poppo%20%20"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                //   onClick={trackPoppoAgencyClickByLink}
-                  className="bg-linear-to-r from-[#E514F0] to-[#000899] hover:bg-white text-white mt-4 lg:mt-2 border-2 border-white px-6 py-2 rounded-full text-base lg:text-lg font-semibold mx-auto lg:mx-0 transition-all duration-300 text-center"
-                >
-                  Apply for Agency
-                </a>
-                <a
-                  href="https://static.vshowapi.com/inviteNew/share?c=poppo&link_id=8096839&user_id=63534458&temp_type=1&sys_temp_id=2"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="bg-linear-to-r from-[#E514F0] to-[#000899] hover:bg-white text-white mt-4 lg:mt-2 border-2 border-white px-6 py-2 rounded-full text-base lg:text-lg font-semibold mx-auto lg:mx-0 transition-all duration-300 text-center"
-                >
-                  Download the Poppo App
-                </a>
-                <a
-                  href="https://invite-vone.com/azNtkC"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="bg-linear-to-r from-[#E514F0] to-[#000899] hover:bg-white text-white mt-4 lg:mt-2 border-2 border-white px-6 py-2 rounded-full text-base lg:text-lg font-semibold mx-auto lg:mx-0 transition-all duration-300 text-center"
-                >
-                  Download Vone App
-                </a>
-              </div>
-              <p className="text-white/90 text-sm sm:text-base mt-4 lg:mt-6 mx-auto text-center lg:text-left leading-snug">
-                Indian users can download the Vone App for Android &amp; iOS.
-              </p>
+        {/* Header */}
+        <header className="sticky top-0 z-50 bg-[#F3F6FC]/85 backdrop-blur-[10px] border-b border-[#DCE3F2]">
+          <div className="flex items-center justify-between gap-3 py-4 px-2 sm:px-6 relative z-1 max-w-[1120px] mx-auto">
+            <div
+              className={`${spaceGrotesk.className} flex items-center gap-2.5 font-bold text-base sm:text-[1.15rem] leading-none text-[#0B0F1E]`}
+            >
+              <span className={`relative w-[26px] h-[26px] rounded-md ${GRADIENT}`}>
+                <span className="absolute inset-[5px] bg-white rounded-[3px]" />
+              </span>
+              Live Hosting
             </div>
-          </div>
-        </div>
 
-        <section id="registration" className="scroll-mt-8 pt-12 pb-12 px-4">
-          <div className="h-fit bg-white">
-            <div className="mx-auto max-w-[1250px]">
-              <div className="flex flex-col md:flex-row items-center justify-center my-auto">
-                <div className="sm:px-8 md:py-[5%] flex flex-col items-center justify-center">
-                  <div className="flex flex-col items-center justify-center mb-4 lg:mb-6 max-w-4xl gap-2 lg:gap-4">
-                    <h2 className="text-3xl lg:text-5xl font-extrabold text-center text-black">
-                      How to Get Started
-                    </h2>
-                    <p className="text-base lg:text-xl font-normal text-center text-[#2f2f2f]">
-                      Follow these steps to apply for agency partner access on
-                      Poppo Live.
-                    </p>
-                  </div>
-                  <div className="flex flex-col gap-4">
-                    <Image
-                      src="/landing-pages/connect-agency/agency-reg2.webp"
-                      alt="Download the App and Submit your application to become an Agency"
-                      width={2000}
-                      height={800}
-                      className="w-full my-4 lg:my-8"
-                    />
+            <div className="flex items-center gap-1 sm:gap-3">
+              {/* Policy download dropdown */}
+              <div className="relative" ref={policyRef}>
+                <button
+                  type="button"
+                  onClick={() => {
+                    setOpenPolicy((v) => !v);
+                    setOpenLang(false);
+                  }}
+                  className={`${orbitron.className} inline-flex items-center gap-1.5 font-bold text-[0.68rem] sm:text-[0.72rem] tracking-[0.04em] text-[#0B0F1E] bg-white border border-[#DCE3F2] sm:py-3 p-2 sm:px-3.5 rounded-md hover:border-[#00C2FF] transition focus-visible:outline-2 focus-visible:outline-[#00C2FF] focus-visible:outline-offset-[3px]`}
+                  aria-expanded={openPolicy}
+                  aria-haspopup="listbox"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    className="shrink-0"
+                    aria-hidden
+                  >
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                    <polyline points="7 10 12 15 17 10" />
+                    <line x1="12" x2="12" y1="15" y2="3" />
+                  </svg>
+                  {/* <span className="hidden sm:inline">Policies</span> */}
+                  {/* <svg
+                    className={`w-3.5 h-3.5 transition-transform ${openPolicy ? 'rotate-180' : ''}`}
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    aria-hidden
+                  >
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+                  </svg> */}
+                </button>
 
-                    <ol className="text-left list-decimal px-6 space-y-1">
-                      <li className="text-[1rem] leading-tight md:text-lg text-left">
-                        <span className="font-semibold">
-                          Download &amp; Sign Up
-                        </span>{" "}
-                        —{" "}
-                        <a
-                          href="https://static.vshowapi.com/inviteNew/share?c=poppo&link_id=8096839&user_id=63534458&temp_type=1&sys_temp_id=2"
-                          className="underline text-blue-700 font-semibold"
-                        >
-                          Download the Poppo Live App
-                        </a>{" "}
-                        and create your account.
-                      </li>
-                      <li className="text-[1rem] leading-tight md:text-lg text-left">
-                        <span className="font-semibold">Find Your ID</span> — Go
-                        to your profile in the app and copy your unique Poppo ID
-                        number.
-                      </li>
-                      <li className="text-[1rem] leading-tight md:text-lg text-left">
-                        <span className="font-semibold">
-                          Submit Your Application
-                        </span>{" "}
-                        — Use the official{" "}
-                        <a
-                          href="https://h5.vshowapi.com/guild/agency_invite/register/?inviter_id=63534458&c=poppo%20%20"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                        //   onClick={trackPoppoAgencyClickByLink}
-                          className="underline text-blue-700 font-semibold"
-                        >
-                          Apply for Agency Access
-                        </a>{" "}
-                        link, enter your ID, and follow the verification steps
-                        in the app.
-                      </li>
-                      <li className="text-[1rem] leading-tight md:text-lg text-left">
-                        <span className="font-semibold">
-                          Confirm Your Application
-                        </span>{" "}
-                        — Enter your verification code here to complete your
-                        submission.
-                      </li>
-                    </ol>
-
-                    <p className="text-[1rem] leading-[1.35] md:text-lg text-left">
-                      Need help with your application? Contact our support team
-                      at{" "}
+                {openPolicy && (
+                  <div className="absolute right-0 mt-2 w-64 bg-white border border-[#DCE3F2] rounded-lg shadow-lg overflow-hidden z-50">
+                    {POLICIES.map((policy) => (
                       <a
-                        className="text-blue-700 underline font-semibold"
-                        href="https://api.whatsapp.com/send/?phone=919650889239&text&type=phone_number&app_absent=0"
+                        key={policy.url}
+                        href={policy.url}
+                        download
                         target="_blank"
                         rel="noopener noreferrer"
+                        onClick={() => setOpenPolicy(false)}
+                        className="block px-4 py-3 text-sm text-[#0B0F1E] font-medium hover:bg-[#F3F6FC] hover:text-[#7B2FFF] border-b border-[#DCE3F2] last:border-b-0 no-underline"
                       >
-                        +91 9650889239
-                      </a>{" "}
-                      or{" "}
-                      <a
-                        className="text-blue-700 underline font-semibold"
-                        href="mailto:support@connectwithapps.com"
-                      >
-                        support@connectwithapps.com
+                        {policy.text}
                       </a>
-                      . We&apos;re available to answer questions about the
-                      onboarding process.
-                    </p>
-                    <a
-                      href="https://h5.vshowapi.com/guild/agency_invite/register/?inviter_id=63534458&c=poppo%20%20"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    //   onClick={trackPoppoAgencyClickByLink}
-                      className="w-fit md:mt-4 bg-linear-to-r from-[#E514F0] to-[#000899] text-white px-4 lg:px-8 py-2 rounded-full text-base lg:text-lg font-semibold text-center transition-all duration-300"
-                    >
-                      Apply for Agency
-                    </a>
+                    ))}
                   </div>
-                </div>
+                )}
               </div>
-            </div>
-          </div>
-        </section>
 
-        <section
-          id="why-partner-with-us"
-          className="bg-linear-to-r from-[#DDCCFF] to-[#FFEDF9] py-20 px-4 scroll-mt-20"
-        >
-          <h2 className="text-2xl lg:text-5xl text-center font-bold text-black mb-2 lg:mb-4">
-            Why Partner With Us
-          </h2>
-          <div className="container mx-auto py-8 lg:py-12">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-8 max-w-6xl mx-auto">
-              {[
-                {
-                  title: "Onboarding Support",
-                  description:
-                    "We guide you through account setup, application submission, and understanding Poppo Live's agency requirements.",
-                },
-                {
-                  title: "Ongoing Guidance",
-                  description:
-                    "Our team is available to answer your questions as you manage your host roster and grow your agency.",
-                },
-                {
-                  title: "Global Platform",
-                  description:
-                    "Poppo Live connects creators with audiences worldwide.",
-                },
-                {
-                  title: "Flexible Operations",
-                  description:
-                    "Run your agency activities on your own schedule, from your phone or laptop.",
-                },
-                {
-                  title: "Partner Community",
-                  description:
-                    "Connect with other agency partners to share what's working.",
-                },
-                {
-                  title: "Revenue Share",
-                  description:
-                    "Agency partners receive a revenue share based on their team's activity on the platform, in accordance with Poppo Live's official agency partner terms.",
-                },
-              ].map((benefit, index) => (
-                <div
-                  key={index}
-                  className="border-2 rounded-3xl pt-6 pb-4 px-4 lg:pt-8 lg:pb-4 lg:px-4 bg-white relative"
-                  style={{ borderColor: "#E514F0" }}
+              {/* Language dropdown */}
+              <div className="relative" ref={langRef}>
+                <button
+                  type="button"
+                  onClick={() => {
+                    setOpenLang((v) => !v);
+                    setOpenPolicy(false);
+                  }}
+                  className="inline-flex items-center justify-center sm:py-2.5 p-2 sm:px-3 rounded-md border border-[#DCE3F2] bg-white text-[#0B0F1E] hover:border-[#00C2FF] transition focus-visible:outline-2 focus-visible:outline-[#00C2FF] focus-visible:outline-offset-[3px]"
+                  aria-label="Select language"
+                  aria-expanded={openLang}
+                  aria-haspopup="listbox"
                 >
-                  <div className="absolute top-[-20px] left-1/2 -translate-x-1/2 w-10 h-10 bg-linear-to-r from-[#E514F0] to-[#000899] rounded-full text-white text-center leading-10 text-lg font-bold">
-                    {index + 1}
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    className="lucide lucide-languages-icon lucide-languages"
+                    aria-hidden
+                  >
+                    <path d="m5 8 6 6" />
+                    <path d="m4 14 6-6 2-3" />
+                    <path d="M2 5h12" />
+                    <path d="M7 2h1" />
+                    <path d="m22 22-5-10-5 10" />
+                    <path d="M14 18h6" />
+                  </svg>
+                </button>
+
+                {openLang && (
+                  <div className="absolute right-0 mt-2 w-44 bg-white border border-[#DCE3F2] rounded-lg shadow-lg overflow-hidden z-50">
+                    {LANGUAGES.map((lang) => (
+                      <button
+                        key={lang.code}
+                        type="button"
+                        onClick={() => selectLanguage(lang.code)}
+                        className={`block w-full text-left px-4 py-2.5 text-sm font-medium transition ${
+                          currentLang === lang.code
+                            ? 'bg-[#F3F6FC] text-[#7B2FFF]'
+                            : 'text-[#0B0F1E] hover:bg-[#F3F6FC]'
+                        }`}
+                      >
+                        {lang.label}
+                      </button>
+                    ))}
                   </div>
-                  <div className="text-black text-center">
-                    <h3 className="text-lg sm:text-xl leading-tight font-semibold mb-2">
-                      {benefit.title}
-                    </h3>
-                    <p className="text-[1rem] sm:text-[1.15rem] text-black/50 leading-tight">
-                      {benefit.description}
-                    </p>
-                  </div>
-                </div>
-              ))}
+                )}
+              </div>
+
+              <a
+                href={AGENCY_APPLY_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`${orbitron.className} font-bold text-[0.68rem] sm:text-[0.76rem] tracking-[0.04em] text-white bg-[#0B0F1E] py-[7px] sm:py-[11px] px-2 sm:px-[18px] rounded-md no-underline hover:shadow-[0_0_0_2px_#00C2FF] focus-visible:outline-2 focus-visible:outline-[#00C2FF] focus-visible:outline-offset-[3px] whitespace-nowrap`}
+              >
+                Apply for Agency
+              </a>
             </div>
           </div>
-        </section>
+        </header>
 
-        <section
-          id="rules"
-          className="bg-white py-10 lg:py-20 flex flex-col lg:flex-row gap-4 lg:gap-16 items-center justify-center px-4 scroll-mt-20"
-        >
-          <Image
-            src="/landing-pages/connect-agency/rules.png"
-            alt="Agency Rules & Guidelines"
-            width={384}
-            height={384}
-            className="w-full h-full lg:max-w-96 max-w-72"
-          />
-          <div>
-            <h2 className="text-2xl lg:text-4xl font-bold text-black lg:mb-4 mb-2">
-              Platform Rules (Please Read Carefully)
-            </h2>
-            <ul className="list-disc space-y-2 pl-5 text-black/90">
-              <li className="text-base lg:text-lg leading-[1.35]">
-                Everyone in your team must be at least{" "}
-                <span className="font-semibold">18 years old</span> and complete
-                identity verification.
-              </li>
-              <li className="text-base lg:text-lg leading-[1.35]">
-                No adult content, hate speech, or unlawful activity is permitted.
-                Zero-tolerance policy.
-              </li>
-              <li className="text-base lg:text-lg leading-[1.35]">
-                As an agency partner, you are responsible for ensuring your team
-                follows platform rules.
-              </li>
-              <li className="text-base lg:text-lg leading-[1.35]">
-                Do not attempt to recruit creators already managed by another
-                Poppo agency.
-              </li>
-              <li className="text-base lg:text-lg leading-[1.35]">
-                Keep your account credentials secure.
-              </li>
-            </ul>
-          </div>
-        </section>
-
-        <section
-          id="how-to-add-creators-to-your-team"
-          className="bg-linear-to-l from-[#ffedf957] to-[#DDCCFF] rounded-3xl lg:rounded-full mt-8 mb-16 pt-6 pb-16 lg:px-12 lg:pt-8 lg:pb-14 w-[90%] lg:w-full max-w-5xl mx-auto px-4 border-2 border-[#010899] relative scroll-mt-28"
-        >
-          <h2
-            className="text-2xl lg:text-4xl font-bold text-black max-w-2xl mx-auto mb-8 lg:mb-8 text-center bg-white rounded-full px-4 py-2"
-            style={{ boxShadow: "0 4px 0px #880FCD" }}
-          >
-            Adding Creators to Your Team
-          </h2>
-          <p className="text-center text-black text-base lg:text-xl">
-            Give new creators your Agency Code:{" "}
-            <span className="font-bold text-black text-lg">63534458</span>
-          </p>
-          <p className="text-center text-black text-base lg:text-xl border-y border-black my-2 py-2 mx-auto">
-            Guide them to enter this code in the{" "}
-            <span className="font-semibold">&quot;My Agency&quot;</span> section
-            of their profile after signing up on the app.
-          </p>
-          <p className="text-center text-black text-base lg:text-xl">
-            Questions? Contact our support team at{" "}
-            <a
-              href="https://api.whatsapp.com/send/?phone=917065384660&text&type=phone_number&app_absent=0"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-blue-700 underline font-semibold"
-            >
-              +91 7065384660
-            </a>{" "}
-            or{" "}
-            {/* <a
-              href="mailto:support@connectwithapps.com"
-              className="text-blue-700 underline font-semibold"
-            >
-              support@connectwithapps.com
-            </a> */}
-            .
-          </p>
-        </section>
-
-        <section
-          id="frequently-asked-questions"
-          className="bg-white mt-24 lg:mt-24 max-w-4xl w-[90%] mx-auto scroll-mt-20"
-        >
-          <h2 className="text-2xl lg:text-4xl font-bold text-black mb-6 lg:mb-8 text-center">
-            Frequently Asked Questions
-          </h2>
-          <div className="space-y-1 divide-y divide-gray-200">
-            <details className="py-2">
-              <summary className="cursor-pointer font-semibold text-black text-lg">
-                Does it cost anything to join as an agency partner?
-              </summary>
-              <p className="mt-2 text-gray-700">
-                No. There is no fee to register as an agency partner.
-                Compensation is performance-based, per Poppo Live&apos;s official
-                terms.
+        {/* Hero */}
+        <section className="py-[66px] pb-[60px] relative z-1">
+          <Wrap className="grid grid-cols-1 lg:grid-cols-[1.05fr_0.95fr] gap-12 items-center">
+            <div>
+              <Label>Poppo Live · Agency Partner Program</Label>
+              <h1
+                className={`${spaceGrotesk.className} font-bold text-[clamp(2.2rem,4.2vw,3.3rem)] leading-[1.1] text-[#0B0F1E] mt-4 tracking-[-0.01em]`}
+              >
+                Become a <GradientText>Poppo Live</GradientText> agency partner
+              </h1>
+              <p className="mt-5 text-[1.04rem] text-[#525A72] max-w-[480px]">
+                Manage a team of live-streaming creators on Poppo Live. Get onboarding support,
+                guidance, and ongoing assistance as an independent agency partner.
               </p>
-            </details>
-            <details className="py-2">
-              <summary className="cursor-pointer font-semibold text-black text-lg">
-                What support do I get?
-              </summary>
-              <p className="mt-2 text-gray-700">
-                We provide onboarding guidance and ongoing support to help you
-                understand and follow Poppo Live&apos;s agency requirements.
-              </p>
-            </details>
-            <details className="py-2">
-              <summary className="cursor-pointer font-semibold text-black text-lg">
-                How is commission paid?
-              </summary>
-              <p className="mt-2 text-gray-700">
-                Payouts follow Poppo Live&apos;s standard schedule. Full details
-                are shared during onboarding.
-              </p>
-            </details>
-            <details className="py-2">
-              <summary className="cursor-pointer font-semibold text-black text-lg">
-                What are the requirements for creators on my team?
-              </summary>
-              <p className="mt-2 text-gray-700">
-                Creators must be 18 or older, complete identity verification,
-                and follow all Poppo Live community guidelines.
-              </p>
-            </details>
-            <details className="py-2">
-              <summary className="cursor-pointer font-semibold text-black text-lg">
-                What happens if a creator on my team violates platform rules?
-              </summary>
-              <p className="mt-2 text-gray-700">
-                As the managing agency partner, you&apos;re responsible for your
-                team&apos;s compliance. Repeated violations can result in
-                penalties to your agency account.
-              </p>
-            </details>
-          </div>
-        </section>
-
-        <section className="text-center pt-4 lg:pt-8 px-4">
-          <a
-            href="https://h5.vshowapi.com/guild/agency_invite/register/?inviter_id=63534458&c=poppo%20%20"
-            target="_blank"
-            rel="noopener noreferrer"
-            // onClick={trackPoppoAgencyClickByLink}
-            className="inline-block bg-linear-to-r from-[#E514F0] to-[#000899] hover:bg-white text-white px-6 py-2 rounded-full text-base lg:text-lg font-semibold transition-all duration-300"
-          >
-            Apply for Agency
-          </a>
-        </section>
-
-        <section
-          id="about-us"
-          className="bg-[radial-gradient(circle_at_58%_100%,#E514F020_0%,#ffffff_100%)] w-full mx-auto mt-8 px-4 pt-8 lg:px-6 lg:py-12 shadow-sm scroll-mt-20"
-        >
-          <div className="max-w-6xl mx-auto lg:mb-16 mb-12">
-            <h3 className="text-2xl lg:text-4xl font-semibold text-black mb-2 text-center">
-              About Us
-            </h3>
-            <p className="text-base lg:text-lg text-gray-900 text-center max-w-4xl mx-auto">
-            Gadhavi Consultancy is an independent talent management company (not owned by or affiliated with Poppo Live). Poppo Live is operated by its own platform provider. We only offer recruitment guidance, onboarding assistance, and compliance support for prospective Poppo Live agents and hosts. We do not guarantee approvals, earnings, or placements results depend on the platform's policies and individual performance.
-            </p>
-            {/* <p className="text-base lg:text-lg text-gray-900 text-center max-w-4xl mx-auto mt-4">
-              We do not guarantee application approval or specific earnings.
-              Outcomes depend on your own effort, your team&apos;s activity, and
-              adherence to platform policies.
-            </p> */}
-
-            <div className="text-base lg:text-lg text-gray-800 text-center mt-0 space-y-1">
-              {/* <p>
-                <span className="font-semibold">Legal entity:</span> Connect
-                Tech
-              </p> */}
-              {/* <p>
-                <span className="font-semibold">Address:</span> Omaxe Green
-                Meadow City, Bhiwadi, Rajasthan 301019
-              </p>
-              <p>
-                <span className="font-semibold">Contact:</span>{" "}
+              <div className="flex gap-3.5 mt-[30px] flex-wrap items-center">
+                <BtnPrimary href={AGENCY_APPLY_URL}>APPLY FOR AGENCY</BtnPrimary>
+                <BtnGhost href={DOWNLOAD_APP_URL}>DOWNLOAD APP</BtnGhost>
+              </div>
+              <div className="mt-4 text-[0.86rem] text-[#525A72]">
+                Indian users can also{' '}
                 <a
-                  href="https://api.whatsapp.com/send/?phone=919650889239&text&type=phone_number&app_absent=0"
+                  href="https://joinluvlive.com/azNtkC"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-blue-700 underline"
+                  className={LINK}
                 >
-                  +91 9650889239
-                </a>{" "}
-                ,{" "}
-                <a
-                  href="mailto:support@connectwithapps.com"
-                  className="text-blue-700 underline"
-                >
-                  support@connectwithapps.com
-                </a>{" "}
-              </p> */}
-            </div>
-          </div>
-
-          {/* <footer className="w-[95%] mx-auto lg:px-16 py-6 border border-[#E514F0] bg-linear-to-r from-[#fef1ff] via-[#fdd0ff] to-[#fef1ff] rounded-t-3xl lg:rounded-t-[40px]">
-            <div className="flex flex-col lg:flex-row gap-4 lg:gap-16 items-center justify-between">
-              <Image
-                src="/landing-pages/logo2.png"
-                alt="Join with Connect Logo"
-                width={192}
-                height={192}
-                className="w-20 md:w-24 lg:w-28 h-auto hidden"
-              />
-              <div className="flex flex-col lg:flex-row gap-1 lg:gap-4 items-center justify-between mx-auto">
-                <Link
-                  href="/contact-us"
-                  className="text-black hover:text-gray-600 transition-all duration-300"
-                >
-                  Contact Us
-                </Link>
-                <div className="w-px h-4 bg-[#E514F0] hidden lg:block"></div>
-                <Link
-                  href="/privacy-policy"
-                  className="text-black hover:text-gray-600 transition-all duration-300"
-                >
-                  Privacy Policy
-                </Link>
-                <div className="w-px h-4 bg-[#E514F0] hidden lg:block"></div>
-                <Link
-                  href="/terms-and-conditions"
-                  className="text-black hover:text-gray-600 transition-all duration-300"
-                >
-                  Terms & Conditions
-                </Link>
+                  download the Vone App
+                </a>{' '}
+                for Android &amp; iOS.
+              </div>
+              <div className="mt-5 text-[0.78rem] text-[#8891A8] max-w-[460px]">
+                Live Hosting is an independent agency partner for Poppo Live — not Poppo Live
+                itself.
               </div>
             </div>
-            <div className="border-t border-[#E514F0] my-4 max-w-[90%] lg:max-w-full mx-auto"></div>
-            <div className="text-center">
-              <p className="text-gray-600 text-sm leading-tight mt-4 px-4">
-                © 2026 Join with Connect. All Rights Reserved.
-              </p>
-            </div>
-          </footer> */}
-        </section>
-      </main>
 
-      {/* <Footer /> */}
+            <Image 
+              src="/poppo-image.png"
+              alt="Poppo Live Agency Partner"
+              width={500}
+              height={500}
+              className="w-full h-auto max-w-80 md:max-w-96 mx-auto"
+            />
+
+            {/* <HudPanel className="p-[26px]">
+              <div className="flex justify-between items-center mb-5">
+                <div
+                  className={`${orbitron.className} text-[0.62rem] font-bold tracking-[0.05em] text-white bg-[#FF2E97] py-[5px] px-2.5 rounded flex items-center gap-[5px]`}
+                >
+                  <span className="w-1.5 h-1.5 bg-white rounded-full animate-pulse" />
+                  LIVE
+                </div>
+                <div
+                  className={`${orbitron.className} text-[0.62rem] font-bold text-[#525A72] bg-[#EEF1F8] py-[5px] px-2.5 rounded`}
+                >
+                  👁 2.4K
+                </div>
+              </div>
+              <div className={`${spaceGrotesk.className} text-[1.2rem] font-bold mb-1.5`}>
+                Your team, on air
+              </div>
+              <p className="text-[0.86rem] text-[#525A72] max-w-[320px] mb-5">
+                Recruit hosts, guide them through onboarding, and grow your own live-streaming roster
+                on Poppo Live.
+              </p>
+              <div className="flex items-end gap-1.5 h-[60px] mb-5">
+                {BAR_HEIGHTS.map((height, i) => (
+                  <span
+                    key={i}
+                    className={`flex-1 ${GRADIENT} rounded-t-[3px] opacity-85`}
+                    style={{ height }}
+                  />
+                ))}
+              </div>
+              <div className="flex gap-2.5 flex-wrap">
+                {['FREE TO JOIN', 'WEEKLY PAYOUTS'].map((chip) => (
+                  <div
+                    key={chip}
+                    className={`${orbitron.className} text-[0.66rem] font-bold tracking-[0.02em] border border-[#DCE3F2] rounded-md py-2 px-3 text-[#525A72]`}
+                  >
+                    {chip}
+                  </div>
+                ))}
+              </div>
+            </HudPanel> */}
+          </Wrap>
+        </section>
+
+        {/* Getting started */}
+        <section id="get-started" className="py-[68px] relative z-1">
+          <Wrap>
+            <SectionHead label="Getting started" title="How to get started" />
+
+
+            <div className="flex flex-col gap-3.5 max-w-[760px] mx-auto">
+              {[
+                {
+                  num: '01',
+                  title: 'Download & Sign Up',
+                  body: (
+                    <>
+                      <a href={DOWNLOAD_APP_URL} target="_blank" rel="noopener noreferrer" className={LINK}>
+                        Download the Poppo Live App
+                      </a>{' '}
+                      and create your account.
+                    </>
+                  ),
+                },
+                {
+                  num: '02',
+                  title: 'Find Your ID',
+                  body: 'Go to your profile in the app and copy your unique Poppo ID number.',
+                },
+                {
+                  num: '03',
+                  title: 'Submit Your Application',
+                  body: (
+                    <>
+                      Click the{' '}
+                      <a href={AGENCY_APPLY_URL} target="_blank" rel="noopener noreferrer" className={LINK}>
+                        Apply for Agency Access
+                      </a>{' '}
+                      link on this page, paste your ID, and click &quot;Get.&quot; You&apos;ll receive
+                      a verification code in your app messages.
+                    </>
+                  ),
+                },
+                {
+                  num: '04',
+                  title: 'Finish Up',
+                  body: 'Enter that code here and submit your form.',
+                },
+              ].map((step) => (
+                <HudPanel key={step.num} className="flex gap-[18px] items-start p-5">
+                  <StepNum>{step.num}</StepNum>
+                  <div>
+                    <h3
+                      className={`${spaceGrotesk.className} text-[1.02rem] text-[#0B0F1E] font-bold mb-1.5`}
+                    >
+                      {step.title}
+                    </h3>
+                    <p className="text-[0.92rem] text-[#525A72]">{step.body}</p>
+                  </div>
+                </HudPanel>
+              ))}
+            </div>
+
+            <NoteBox>
+              <strong className={`${orbitron.className} text-[#0B0F1E] text-[0.78rem] tracking-[0.03em]`}>
+                NOTE
+              </strong>{' '}
+              If you&apos;re in the South Asian region (Afghanistan, Bangladesh, Bhutan, India, Maldives, Nepal, Pakistan, Sri Lanka, etc.), contact us on{' '}
+              <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className={LINK}>
+                WhatsApp at +91 70653 84660
+              </a>{' '}
+              to learn the agent registration process.
+            </NoteBox>
+
+            <div className="text-center mt-7">
+              <BtnPrimary href={AGENCY_APPLY_URL}>APPLY FOR AGENCY</BtnPrimary>
+            </div>
+          </Wrap>
+        </section>
+
+        {/* Benefits */}
+        <section id="benefits" className="pt-0 pb-[68px] relative z-1">
+          <Wrap>
+            <SectionHead label="Partner benefits" title="Why partner with us" />
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3.5">
+              {BENEFITS.map((b) => (
+                <HudPanel key={b.num} className="py-[22px] px-4 text-center">
+                  <div className={`${orbitron.className} text-[0.72rem] font-bold tracking-[0.04em]`}>
+                    <GradientText>{b.num}</GradientText>
+                  </div>
+                  <h4
+                    className={`${spaceGrotesk.className} text-[0.9rem] text-[#0B0F1E] font-bold mt-2.5 mb-1.5`}
+                  >
+                    {b.title}
+                  </h4>
+                  <p className="text-[0.78rem] text-[#525A72]">{b.desc}</p>
+                </HudPanel>
+              ))}
+            </div>
+          </Wrap>
+        </section>
+
+        {/* Revenue */}
+        <section id="revenue" className="py-[68px] relative z-1">
+          <Wrap>
+            <SectionHead label="Earnings" title="Revenue share" />
+            <HudPanel className="p-10 text-center">
+              <p className="text-base text-[#0B0F1E] max-w-[620px] mx-auto mb-2.5 font-medium">
+                Agency partners receive a revenue share based on their team&apos;s activity on the
+                platform, in accordance with Poppo Live&apos;s official agency partner terms.
+              </p>
+              <p className="text-[0.82rem] text-[#525A72] mt-1.5 font-normal">
+                Full payout structure and rates are shared directly during onboarding.
+              </p>
+              <p className="text-[0.82rem] text-[#525A72] mt-1.5 font-normal">
+                Actual earnings vary based on host activity, engagement, and platform performance, and
+                are not guaranteed.
+              </p>
+              <BtnPrimary
+                href="https://www.joinwithconnect.com/contact-us"
+                className="mt-[22px]"
+              >
+                CONTACT US TO LEARN MORE
+              </BtnPrimary>
+            </HudPanel>
+          </Wrap>
+        </section>
+
+        {/* Rules */}
+        <section id="rules" className="pt-0 pb-[68px] relative z-1">
+          <Wrap>
+            <SectionHead label="Please read carefully" title="Platform rules" />
+            <ul className="list-none grid gap-3 p-0 m-0">
+              {RULES.map((rule) => (
+                <li
+                  key={rule}
+                  className="py-[15px] px-5 text-[0.9rem] text-[#525A72] flex gap-3.5 items-start border border-[#DCE3F2] rounded-lg bg-white"
+                >
+                  <span className={`${orbitron.className} text-[#00C2FF] font-bold shrink-0`}>
+                    {'//'}
+                  </span>
+                  {rule}
+                </li>
+              ))}
+            </ul>
+          </Wrap>
+        </section>
+
+        {/* Agency code */}
+        <section id="agency-code" className="py-[68px] relative z-1">
+          <Wrap>
+            <SectionHead label="Growing your team" title="Adding creators to your team" />
+            <HudPanel className="p-[30px] flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6 flex-wrap">
+              <div>
+                <h4
+                  className={`${spaceGrotesk.className} text-[#0B0F1E] text-[1.02rem] font-bold`}
+                >
+                  Give new creators your Agency Code
+                </h4>
+                <p className="text-[0.88rem] text-[#525A72] max-w-[420px] mt-1.5">
+                  Guide them to enter this code in the &quot;My Agency&quot; section of their profile
+                  after signing up on the app.
+                </p>
+              </div>
+              <button
+                type="button"
+                onClick={copyCode}
+                className={`${orbitron.className} bg-[#FAFBFF] border-[1.5px] border-dashed rounded-lg py-3.5 px-[26px] text-[1.15rem] tracking-[0.04em] font-bold text-center cursor-pointer transition duration-150 hover:-translate-y-0.5 hover:shadow-[0_8px_22px_rgba(0,194,255,0.35)] ${
+                  copied
+                    ? 'border-[#00C2FF] text-[#7B2FFF]'
+                    : 'border-[#7B2FFF] text-[#7B2FFF]'
+                }`}
+              >
+                <span
+                  className={`${orbitron.className} block text-[0.6rem] tracking-[0.08em] uppercase text-[#525A72] font-bold mb-1.5`}
+                >
+                  Agency Code
+                </span>
+                {AGENCY_CODE}
+                <span
+                  className={`${inter.className} block text-[0.64rem] font-semibold mt-2 tracking-normal ${
+                    copied ? 'text-[#00C2FF]' : 'text-[#525A72]'
+                  }`}
+                >
+                  {copied ? 'Copied!' : 'Tap to copy'}
+                </span>
+              </button>
+            </HudPanel>
+            <NoteBox className="mt-[22px]">
+              Questions? Contact our support team at{' '}
+              <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className={LINK}>
+                +91 70653 84660
+              </a>
+              .
+            </NoteBox>
+          </Wrap>
+        </section>
+
+        {/* FAQ */}
+        <section id="faq" className="py-[68px] relative z-1">
+          <Wrap>
+            <SectionHead label="FAQ" title="Frequently asked questions" />
+            <div className="max-w-[760px] mx-auto flex flex-col gap-2.5">
+              {FAQS.map((faq, index) => {
+                const isOpen = openFaq === index;
+                return (
+                  <HudPanel key={faq.q} className="py-1.5 px-5">
+                    <button
+                      type="button"
+                      className={`${spaceGrotesk.className} flex justify-between items-center cursor-pointer font-bold text-[#0B0F1E] text-[0.98rem] w-full bg-transparent border-0 text-left py-3.5`}
+                      onClick={() => toggleFaq(index)}
+                      aria-expanded={isOpen}
+                    >
+                      <span>{faq.q}</span>
+                      <span
+                        className={`${orbitron.className} text-[#FF2E97] text-[1.2rem] shrink-0 ml-3 transition-transform duration-200 ${
+                          isOpen ? 'rotate-45' : ''
+                        }`}
+                      >
+                        +
+                      </span>
+                    </button>
+                    <div
+                      className={`overflow-hidden transition-all duration-250 text-[0.9rem] text-[#525A72] ${
+                        isOpen ? 'max-h-[200px] pb-4' : 'max-h-0'
+                      }`}
+                    >
+                      {faq.a}
+                    </div>
+                  </HudPanel>
+                );
+              })}
+            </div>
+          </Wrap>
+        </section>
+
+        {/* Final CTA */}
+        <section className="pt-16 pb-5 text-center relative z-1" id="apply">
+          <Wrap>
+            <HudPanel className="py-[52px] px-8">
+              <Label className="justify-center">Ready when you are</Label>
+              <h2
+                className={`${spaceGrotesk.className} text-[clamp(1.7rem,3.2vw,2.4rem)] text-[#0B0F1E] font-bold`}
+              >
+                Ready to build your agency?
+              </h2>
+              <p className="text-[#525A72] mt-2.5 max-w-[440px] mx-auto">
+                Apply now and our team will guide you through onboarding.
+              </p>
+              <div className="flex gap-3.5 mt-[26px] flex-wrap items-center justify-center">
+                <BtnPrimary href={AGENCY_APPLY_URL}>APPLY FOR AGENCY</BtnPrimary>
+                <BtnGhost href={DOWNLOAD_APP_URL}>DOWNLOAD APP</BtnGhost>
+              </div>
+              <div className="mt-5 text-[0.88rem] text-[#525A72]">
+                Or reach us directly at{' '}
+                <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className={LINK}>
+                  +91 70653 84660
+                </a>
+              </div>
+            </HudPanel>
+          </Wrap>
+        </section>
+
+        {/* Footer */}
+        <footer className="py-10 pb-[50px] border-t border-[#DCE3F2] mt-4 relative z-1">
+          <Wrap className="max-w-[740px] text-center">
+            <p className="text-[0.8rem] text-[#8891A8] leading-[1.7] mb-2.5">
+              <strong className="text-[#0B0F1E]">About Us</strong>
+            </p>
+            <p className="text-[0.8rem] text-[#8891A8] leading-[1.7] mb-2.5">
+              Live Hosting is an independent talent management company operated by Abhijeet.
+              We are not owned by, or legally affiliated with, the corporate owners of Poppo Live. We
+              operate as a third-party agency partner, helping independent creators and agency
+              operators understand and follow Poppo Live&apos;s official program requirements.
+            </p>
+            <p className="text-[0.8rem] text-[#8891A8] leading-[1.7] mb-2.5">
+              We do not guarantee application approval or specific earnings. Outcomes depend on your
+              own effort, your team&apos;s activity, and adherence to platform policies.
+            </p>
+
+            <div className="flex justify-center gap-5 mt-5 text-[0.8rem] flex-wrap">
+              <a
+                href="https://www.joinwithconnect.com/contact-us"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="underline text-[#525A72]"
+              >
+                Contact Us
+              </a>
+              <a
+                href="https://www.joinwithconnect.com/privacy-policy"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="underline text-[#525A72]"
+              >
+                Privacy Policy
+              </a>
+              <a
+                href="https://www.joinwithconnect.com/terms-and-conditions"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="underline text-[#525A72]"
+              >
+                Terms &amp; Conditions
+              </a>
+            </div>
+            <div
+              className={`${orbitron.className} mt-4 text-[0.68rem] text-[#AAB2C6] text-center tracking-[0.04em]`}
+            >
+              © 2026 Live Hosting — ALL RIGHTS RESERVED
+            </div>
+          </Wrap>
+        </footer>
+      </div>
     </>
   );
 }
