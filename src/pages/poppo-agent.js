@@ -751,7 +751,7 @@ export default function PoppoAgent() {
                 href="https://www.joinwithconnect.com/contact-us"
                 className="mt-[22px]"
               >
-                CONTACT US TO LEARN MORE
+                CONTACT US TO KNOW MORE
               </BtnPrimary>
             </HudPanel>
           </Wrap>
