@@ -546,7 +546,7 @@ export default function PoppoAgent() {
         </header>
 
         {/* Hero */}
-        <section className="py-[66px] pb-[60px] relative z-1">
+        <section className="py-[66px] pb-[60px] relative z-1 scroll-mt-20">
           <Wrap className="grid grid-cols-1 lg:grid-cols-[1.05fr_0.95fr] gap-12 items-center">
             <div>
               <Label>Poppo Live · Agency Partner Program</Label>
@@ -634,7 +634,7 @@ export default function PoppoAgent() {
         </section>
 
         {/* Getting started */}
-        <section id="get-started" className="py-[68px] relative z-1">
+        <section id="get-started" className="py-[68px] relative z-1 scroll-mt-20">
           <Wrap>
             <SectionHead label="Getting started" title="How to get started" />
 
@@ -709,7 +709,7 @@ export default function PoppoAgent() {
         </section>
 
         {/* Benefits */}
-        <section id="benefits" className="pt-0 pb-[68px] relative z-1">
+        <section id="benefits" className="pt-0 pb-[68px] relative z-1 scroll-mt-20">
           <Wrap>
             <SectionHead label="Partner benefits" title="Why partner with us" />
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3.5">
@@ -731,7 +731,7 @@ export default function PoppoAgent() {
         </section>
 
         {/* Revenue */}
-        <section id="revenue" className="py-[68px] relative z-1">
+        <section id="revenue" className="py-[68px] relative z-1 scroll-mt-20">
           <Wrap>
             <SectionHead label="Earnings" title="Revenue share" />
             <HudPanel className="p-10 text-center">
@@ -757,7 +757,7 @@ export default function PoppoAgent() {
         </section>
 
         {/* Rules */}
-        <section id="rules" className="pt-0 pb-[68px] relative z-1">
+        <section id="rules" className="pt-0 pb-[68px] relative z-1 scroll-mt-20">
           <Wrap>
             <SectionHead label="Please read carefully" title="Platform rules" />
             <ul className="list-none grid gap-3 p-0 m-0">
@@ -777,7 +777,7 @@ export default function PoppoAgent() {
         </section>
 
         {/* Agency code */}
-        <section id="agency-code" className="py-[68px] relative z-1">
+        <section id="agency-code" className="py-[68px] relative z-1 scroll-mt-20">
           <Wrap>
             <SectionHead label="Growing your team" title="Adding creators to your team" />
             <HudPanel className="p-[30px] flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6 flex-wrap">
@@ -827,7 +827,7 @@ export default function PoppoAgent() {
         </section>
 
         {/* FAQ */}
-        <section id="faq" className="py-[68px] relative z-1">
+        <section id="faq" className="py-[68px] relative z-1 scroll-mt-20">
           <Wrap>
             <SectionHead label="FAQ" title="Frequently asked questions" />
             <div className="max-w-[760px] mx-auto flex flex-col gap-2.5">
