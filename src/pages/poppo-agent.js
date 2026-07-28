@@ -674,7 +674,7 @@ export default function PoppoAgent() {
                 {
                   num: '04',
                   title: 'Finish Up',
-                  body: 'Enter that code here and submit your form.',
+                  body: 'Enter that verification code here and click on Submit. All set, now you become Poppo Agent.',
                 },
               ].map((step) => (
                 <HudPanel key={step.num} className="flex gap-[18px] items-start p-5">
