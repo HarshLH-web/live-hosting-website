@@ -663,12 +663,11 @@ export default function PoppoAgent() {
                   title: 'Submit Your Application',
                   body: (
                     <>
-                      Click the{' '}
+                      Click on{' '}
                       <a href={AGENCY_APPLY_URL} target="_blank" rel="noopener noreferrer" className={LINK}>
-                        Apply for Agency Access
+                      <strong>Agency Registration Link</strong>
                       </a>{' '}
-                      link on this page, paste your ID, and click &quot;Get.&quot; You&apos;ll receive
-                      a verification code in your app messages.
+                      paste your <strong>Profile ID</strong>, and click on <strong>&quot;Get&quot;</strong>. You&apos;ll receive a verification code in your app message section.
                     </>
                   ),
                 },
