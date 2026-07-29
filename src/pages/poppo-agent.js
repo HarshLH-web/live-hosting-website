@@ -190,7 +190,7 @@ function Label({ children, className = '' }) {
     <div
       className={`${orbitron.className} text-[0.66rem] uppercase tracking-[0.14em] font-bold inline-flex items-center gap-2 ${className}`}
     >
-      <span className="w-[7px] h-[7px] bg-[#00C2FF] rounded-[1px] rotate-45 shrink-0" />
+      <span className="w-1.75 h-1.75 bg-[#00C2FF] rounded-[1px] rotate-45 shrink-0" />
       {children}
     </div>
   );
@@ -212,7 +212,7 @@ function BtnPrimary({ href, children, className = '' }) {
       href={href}
       target="_blank"
       rel="noopener noreferrer"
-      className={`${orbitron.className} ${GRADIENT} inline-block text-white font-bold text-[0.8rem] tracking-[0.03em] py-[15px] px-[26px] rounded-lg no-underline shadow-[0_10px_30px_rgba(0,194,255,0.35)] hover:-translate-y-0.5 hover:shadow-[0_14px_34px_rgba(255,46,151,0.3)] transition duration-150 ${className}`}
+      className={`${orbitron.className} ${GRADIENT} inline-block text-white font-bold text-[0.8rem] tracking-[0.03em] py-3.75 px-6.5 rounded-lg no-underline shadow-[0_10px_30px_rgba(0,194,255,0.35)] hover:-translate-y-0.5 hover:shadow-[0_14px_34px_rgba(255,46,151,0.3)] transition duration-150 ${className}`}
     >
       {children}
     </a>
@@ -225,7 +225,7 @@ function BtnGhost({ href, children, className = '' }) {
       href={href}
       target="_blank"
       rel="noopener noreferrer"
-      className={`${orbitron.className} inline-block bg-white text-[#0B0F1E] font-bold text-[0.8rem] tracking-[0.03em] py-[15px] px-[26px] rounded-lg no-underline border-[1.5px] border-[#DCE3F2] hover:border-[#00C2FF] hover:-translate-y-0.5 transition duration-150 ${className}`}
+      className={`${orbitron.className} inline-block bg-white text-[#0B0F1E] font-bold text-[0.8rem] tracking-[0.03em] py-3.75 px-6.5 rounded-lg no-underline border-[1.5px] border-[#DCE3F2] hover:border-[#00C2FF] hover:-translate-y-0.5 transition duration-150 ${className}`}
     >
       {children}
     </a>
@@ -234,7 +234,7 @@ function BtnGhost({ href, children, className = '' }) {
 
 function SectionHead({ label, title }) {
   return (
-    <div className="max-w-[640px] mx-auto mb-10 text-center">
+    <div className="max-w-160 mx-auto mb-10 text-center">
       <Label className="justify-center">{label}</Label>
       <h2
         className={`${spaceGrotesk.className} text-[clamp(1.6rem,3vw,2.15rem)] text-[#0B0F1E] mt-3 font-bold`}
@@ -248,7 +248,7 @@ function SectionHead({ label, title }) {
 function NoteBox({ children, className = '' }) {
   return (
     <div
-      className={`mt-[26px] border border-[#DCE3F2] border-l-[3px] border-l-[#00C2FF] rounded-r-lg py-4 px-5 text-[0.86rem] text-[#525A72] max-w-[760px] mx-auto bg-[#FAFBFF] ${className}`}
+      className={`mt-6.5 border border-[#DCE3F2] border-l-[3px] border-l-[#00C2FF] rounded-r-lg py-4 px-5 text-[0.86rem] text-[#525A72] max-w-190 mx-auto bg-[#FAFBFF] ${className}`}
     >
       {children}
     </div>
@@ -257,7 +257,7 @@ function NoteBox({ children, className = '' }) {
 
 function Wrap({ children, className = '' }) {
   return (
-    <div className={`max-w-[1120px] mx-auto px-6 relative z-1 ${className}`}>
+    <div className={`max-w-280 mx-auto px-6 relative z-1 ${className}`}>
       {children}
     </div>
   );
@@ -266,7 +266,7 @@ function Wrap({ children, className = '' }) {
 function StepNum({ children }) {
   return (
     <div
-      className={`${orbitron.className} ${GRADIENT} text-[0.9rem] font-bold text-white w-[34px] h-[34px] rounded-[7px] flex items-center justify-center shrink-0`}
+      className={`${orbitron.className} ${GRADIENT} text-[0.9rem] font-bold text-white w-8.5 h-8.5 rounded-[7px] flex items-center justify-center shrink-0`}
     >
       {children}
     </div>
@@ -276,7 +276,7 @@ function StepNum({ children }) {
 function VisualStepNum({ children }) {
   return (
     <span
-      className={`${orbitron.className} ${GRADIENT} text-[0.9rem] font-bold text-white w-[30px] h-[30px] rounded-md flex items-center justify-center shrink-0`}
+      className={`${orbitron.className} ${GRADIENT} text-[0.9rem] font-bold text-white w-7.5 h-7.5 rounded-md flex items-center justify-center shrink-0`}
     >
       {children}
     </span>
@@ -400,18 +400,18 @@ export default function PoppoAgent() {
 
         {/* Grid overlay */}
         <div
-          className="fixed inset-0 pointer-events-none z-0 bg-[linear-gradient(rgba(11,15,30,0.035)_1px,transparent_1px),linear-gradient(90deg,rgba(11,15,30,0.035)_1px,transparent_1px)] bg-size-[42px_42px] [mask-image:radial-gradient(1000px_700px_at_50%_0%,#000_20%,transparent_75%)]"
+          className="fixed inset-0 pointer-events-none z-0 bg-[linear-gradient(rgba(11,15,30,0.035)_1px,transparent_1px),linear-gradient(90deg,rgba(11,15,30,0.035)_1px,transparent_1px)] bg-size-[42px_42px] mask-[radial-gradient(1000px_700px_at_50%_0%,#000_20%,transparent_75%)]"
           aria-hidden
         />
 
         {/* Header */}
         <header className="sticky top-0 z-50 bg-[#F3F6FC]/85 backdrop-blur-[10px] border-b border-[#DCE3F2]">
-          <div className="flex items-center justify-between gap-3 py-4 px-2 sm:px-6 relative z-1 max-w-[1120px] mx-auto">
+          <div className="flex items-center justify-between gap-3 py-4 px-2 sm:px-6 relative z-1 max-w-280 mx-auto">
             <div
               className={`${spaceGrotesk.className} flex items-center gap-2.5 font-bold text-base sm:text-[1.15rem] leading-none text-[#0B0F1E]`}
             >
-              <span className={`relative w-[26px] h-[26px] rounded-md ${GRADIENT}`}>
-                <span className="absolute inset-[5px] bg-white rounded-[3px]" />
+              <span className={`relative w-6.5 h-6.5 rounded-md ${GRADIENT}`}>
+                <span className="absolute inset-1.25 bg-white rounded-[3px]" />
               </span>
               Live Hosting
             </div>
@@ -537,7 +537,7 @@ export default function PoppoAgent() {
                 href={AGENCY_APPLY_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${orbitron.className} font-bold text-[0.68rem] sm:text-[0.76rem] tracking-[0.04em] text-white bg-[#0B0F1E] py-[7px] sm:py-[11px] px-2 sm:px-[18px] rounded-md no-underline hover:shadow-[0_0_0_2px_#00C2FF] focus-visible:outline-2 focus-visible:outline-[#00C2FF] focus-visible:outline-offset-[3px] whitespace-nowrap`}
+                className={`${orbitron.className} font-bold text-[0.68rem] sm:text-[0.76rem] tracking-[0.04em] text-white bg-[#0B0F1E] py-1.75 sm:py-2.75 px-0.5 sm:px-4.5 rounded-md no-underline hover:shadow-[0_0_0_2px_#00C2FF] focus-visible:outline-2 focus-visible:outline-[#00C2FF] focus-visible:outline-offset-[3px] whitespace-nowrap`}
               >
                 Apply for Agency
               </a>
@@ -546,7 +546,7 @@ export default function PoppoAgent() {
         </header>
 
         {/* Hero */}
-        <section className="py-[66px] pb-[60px] relative z-1 scroll-mt-20">
+        <section className="py-16.5 pb-15 relative z-1 scroll-mt-20">
           <Wrap className="grid grid-cols-1 lg:grid-cols-[1.05fr_0.95fr] gap-12 items-center">
             <div>
               <Label>Poppo Live · Agency Partner Program</Label>
@@ -555,11 +555,11 @@ export default function PoppoAgent() {
               >
                 Become a <GradientText>Poppo Live</GradientText> agency partner
               </h1>
-              <p className="mt-5 text-[1.04rem] text-[#525A72] max-w-[480px]">
+              <p className="mt-5 text-[1.04rem] text-[#525A72] max-w-120">
                 Manage a team of live-streaming creators on Poppo Live. Get onboarding support,
                 guidance, and ongoing assistance as an independent agency partner.
               </p>
-              <div className="flex gap-3.5 mt-[30px] flex-wrap items-center">
+              <div className="flex gap-3.5 mt-7.5 flex-wrap items-center">
                 <BtnPrimary href={AGENCY_APPLY_URL}>APPLY FOR AGENCY</BtnPrimary>
                 <BtnGhost href={DOWNLOAD_APP_URL}>DOWNLOAD APP</BtnGhost>
               </div>
@@ -575,7 +575,7 @@ export default function PoppoAgent() {
                 </a>{' '}
                 for Android &amp; iOS.
               </div>
-              <div className="mt-5 text-[0.78rem] text-[#8891A8] max-w-[460px]">
+              <div className="mt-5 text-[0.78rem] text-[#8891A8] max-w-115">
                 Live Hosting is an independent agency partner for Poppo Live — not Poppo Live
                 itself.
               </div>
@@ -634,13 +634,13 @@ export default function PoppoAgent() {
         </section>
 
         {/* Getting started */}
-        <section id="get-started" className="py-[68px] relative z-1 scroll-mt-20">
+        <section id="get-started" className="py-17 relative z-1 scroll-mt-20">
           <Wrap>
             <SectionHead label="Getting started" title="How to get started" />
 
 
-            <div className="flex flex-col gap-3.5 max-w-[760px] mx-auto">
-              {[
+              <div className="flex flex-col gap-3.5 max-w-190 mx-auto">
+                {[
                 {
                   num: '01',
                   title: 'Download & Sign Up',
@@ -677,7 +677,7 @@ export default function PoppoAgent() {
                   body: 'Enter that verification code here and click on Submit. All set, now you become Poppo Agent.',
                 },
               ].map((step) => (
-                <HudPanel key={step.num} className="flex gap-[18px] items-start p-5">
+                <HudPanel key={step.num} className="flex gap-4.5 items-start p-5">
                   <StepNum>{step.num}</StepNum>
                   <div>
                     <h3
@@ -709,12 +709,12 @@ export default function PoppoAgent() {
         </section>
 
         {/* Benefits */}
-        <section id="benefits" className="pt-0 pb-[68px] relative z-1 scroll-mt-20">
+        <section id="benefits" className="pt-0 pb-17 relative z-1 scroll-mt-20">
           <Wrap>
             <SectionHead label="Partner benefits" title="Why partner with us" />
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3.5">
               {BENEFITS.map((b) => (
-                <HudPanel key={b.num} className="py-[22px] px-4 text-center">
+                <HudPanel key={b.num} className="py-5.5 px-1 text-center">
                   <div className={`${orbitron.className} text-[0.72rem] font-bold tracking-[0.04em]`}>
                     <GradientText>{b.num}</GradientText>
                   </div>
@@ -731,11 +731,11 @@ export default function PoppoAgent() {
         </section>
 
         {/* Revenue */}
-        <section id="revenue" className="py-[68px] relative z-1 scroll-mt-20">
+        <section id="revenue" className="py-17 relative z-1 scroll-mt-20">
           <Wrap>
             <SectionHead label="Earnings" title="Revenue share" />
             <HudPanel className="p-10 text-center">
-              <p className="text-base text-[#0B0F1E] max-w-[620px] mx-auto mb-2.5 font-medium">
+              <p className="text-base text-[#0B0F1E] max-w-155 mx-auto mb-2.5 font-medium">
                 Agency partners receive a revenue share based on their team&apos;s activity on the
                 platform, in accordance with Poppo Live&apos;s official agency partner terms.
               </p>
@@ -748,7 +748,7 @@ export default function PoppoAgent() {
               </p>
               <BtnPrimary
                 href="https://www.joinwithconnect.com/contact-us"
-                className="mt-[22px]"
+                className="mt-5.5"
               >
                 CONTACT US TO KNOW MORE
               </BtnPrimary>
@@ -757,14 +757,14 @@ export default function PoppoAgent() {
         </section>
 
         {/* Rules */}
-        <section id="rules" className="pt-0 pb-[68px] relative z-1 scroll-mt-20">
+        <section id="rules" className="pt-0 pb-17 relative z-1 scroll-mt-20">
           <Wrap>
             <SectionHead label="Please read carefully" title="Platform rules" />
             <ul className="list-none grid gap-3 p-0 m-0">
               {RULES.map((rule) => (
                 <li
                   key={rule}
-                  className="py-[15px] px-5 text-[0.9rem] text-[#525A72] flex gap-3.5 items-start border border-[#DCE3F2] rounded-lg bg-white"
+                  className="py-3.75 px-1.25 text-[0.9rem] text-[#525A72] flex gap-3.5 items-start border border-[#DCE3F2] rounded-lg bg-white"
                 >
                   <span className={`${orbitron.className} text-[#00C2FF] font-bold shrink-0`}>
                     {'//'}
@@ -777,17 +777,17 @@ export default function PoppoAgent() {
         </section>
 
         {/* Agency code */}
-        <section id="agency-code" className="py-[68px] relative z-1 scroll-mt-20">
+        <section id="agency-code" className="py-17 relative z-1 scroll-mt-20">
           <Wrap>
             <SectionHead label="Growing your team" title="Adding creators to your team" />
-            <HudPanel className="p-[30px] flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6 flex-wrap">
+            <HudPanel className="p-7.5 flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6 flex-wrap">
               <div>
                 <h4
                   className={`${spaceGrotesk.className} text-[#0B0F1E] text-[1.02rem] font-bold`}
                 >
                   Give new creators your Agency Code
                 </h4>
-                <p className="text-[0.88rem] text-[#525A72] max-w-[420px] mt-1.5">
+                <p className="text-[0.88rem] text-[#525A72] max-w-105 mt-1.5">
                   Guide them to enter this code in the &quot;My Agency&quot; section of their profile
                   after signing up on the app.
                 </p>
@@ -795,7 +795,7 @@ export default function PoppoAgent() {
               <button
                 type="button"
                 onClick={copyCode}
-                className={`${orbitron.className} bg-[#FAFBFF] border-[1.5px] border-dashed rounded-lg py-3.5 px-[26px] text-[1.15rem] tracking-[0.04em] font-bold text-center cursor-pointer transition duration-150 hover:-translate-y-0.5 hover:shadow-[0_8px_22px_rgba(0,194,255,0.35)] ${
+                className={`${orbitron.className} bg-[#FAFBFF] border-[1.5px] border-dashed rounded-lg py-3.5 px-6.5 text-[1.15rem] tracking-[0.04em] font-bold text-center cursor-pointer transition duration-150 hover:-translate-y-0.5 hover:shadow-[0_8px_22px_rgba(0,194,255,0.35)] ${
                   copied
                     ? 'border-[#00C2FF] text-[#7B2FFF]'
                     : 'border-[#7B2FFF] text-[#7B2FFF]'
@@ -816,7 +816,7 @@ export default function PoppoAgent() {
                 </span>
               </button>
             </HudPanel>
-            <NoteBox className="mt-[22px]">
+            <NoteBox className="mt-5.5">
               Questions? Contact our support team at{' '}
               <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className={LINK}>
                 +91 70653 84660
@@ -827,10 +827,10 @@ export default function PoppoAgent() {
         </section>
 
         {/* FAQ */}
-        <section id="faq" className="py-[68px] relative z-1 scroll-mt-20">
+        <section id="faq" className="py-17 relative z-1 scroll-mt-20">
           <Wrap>
             <SectionHead label="FAQ" title="Frequently asked questions" />
-            <div className="max-w-[760px] mx-auto flex flex-col gap-2.5">
+            <div className="max-w-190 mx-auto flex flex-col gap-2.5">
               {FAQS.map((faq, index) => {
                 const isOpen = openFaq === index;
                 return (
@@ -852,7 +852,7 @@ export default function PoppoAgent() {
                     </button>
                     <div
                       className={`overflow-hidden transition-all duration-250 text-[0.9rem] text-[#525A72] ${
-                        isOpen ? 'max-h-[200px] pb-4' : 'max-h-0'
+                        isOpen ? 'max-h-50 pb-1' : 'max-h-0'
                       }`}
                     >
                       {faq.a}
@@ -867,17 +867,17 @@ export default function PoppoAgent() {
         {/* Final CTA */}
         <section className="pt-16 pb-5 text-center relative z-1" id="apply">
           <Wrap>
-            <HudPanel className="py-[52px] px-8">
+            <HudPanel className="py-13 px-2">
               <Label className="justify-center">Ready when you are</Label>
               <h2
                 className={`${spaceGrotesk.className} text-[clamp(1.7rem,3.2vw,2.4rem)] text-[#0B0F1E] font-bold`}
               >
                 Ready to build your agency?
               </h2>
-              <p className="text-[#525A72] mt-2.5 max-w-[440px] mx-auto">
+              <p className="text-[#525A72] mt-2.5 max-w-110 mx-auto">
                 Apply now and our team will guide you through onboarding.
               </p>
-              <div className="flex gap-3.5 mt-[26px] flex-wrap items-center justify-center">
+              <div className="flex gap-3.5 mt-6.5 flex-wrap items-center justify-center">
                 <BtnPrimary href={AGENCY_APPLY_URL}>APPLY FOR AGENCY</BtnPrimary>
                 <BtnGhost href={DOWNLOAD_APP_URL}>DOWNLOAD APP</BtnGhost>
               </div>
@@ -892,8 +892,8 @@ export default function PoppoAgent() {
         </section>
 
         {/* Footer */}
-        <footer className="py-10 pb-[50px] border-t border-[#DCE3F2] mt-4 relative z-1">
-          <Wrap className="max-w-[740px] text-center">
+        <footer className="py-10 pb-12.5 border-t border-[#DCE3F2] mt-4 relative z-1">
+          <Wrap className="max-w-185 text-center">
             <p className="text-[0.8rem] text-[#8891A8] leading-[1.7] mb-2.5">
               <strong className="text-[#0B0F1E]">About Us</strong>
             </p>
