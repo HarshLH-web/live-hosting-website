@@ -1,4 +1,5 @@
 import "@/styles/globals.css";
+import { GoogleTagManager } from "@next/third-parties/google";
 import { Roboto } from 'next/font/google';
 
 const roboto = Roboto({
@@ -9,6 +10,7 @@ const roboto = Roboto({
 export default function App({ Component, pageProps }) {
   return (
     <main className={roboto.className}>
+      <GoogleTagManager gtmId='GTM-P6CGMR2' />
       <Component {...pageProps} />
     </main>
   );
