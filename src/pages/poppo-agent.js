@@ -410,9 +410,18 @@ export default function PoppoAgent() {
             <div
               className={`${spaceGrotesk.className} flex items-center gap-2.5 font-bold text-base sm:text-[1.15rem] leading-none text-[#0B0F1E]`}
             >
-              <span className={`relative w-6.5 h-6.5 rounded-md ${GRADIENT}`}>
-                <span className="absolute inset-1.25 bg-white rounded-[3px]" />
+              <span>
+                <Image  
+                className='min-w-6 lg:w-16 min-h-6 lg:h-16'
+                  src="/logo.png"
+                  alt="Live Hosting"
+                  width={80}
+                  height={80}
+                />
               </span>
+              {/* <span className={`relative w-6.5 h-6.5 rounded-md ${GRADIENT}`}>
+                <span className="absolute inset-1.25 bg-white rounded-[3px]" />
+              </span> */}
               Live Hosting
             </div>
 
