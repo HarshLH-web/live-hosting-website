@@ -82,7 +82,8 @@ img{
 }
 
 
-#blog-container p,li{
+#blog-container p,
+#blog-container li{
   color: #000000dd;
   font-size: 1.15rem;
   line-height: 1.4;
@@ -190,7 +191,8 @@ img{
       max-width: 25rem;
       margin: 1rem auto;
   }
-  #blog-container p,li{
+  #blog-container p,
+#blog-container li{
     color: #000000dd;
     font-size: 1rem;
     line-height: 1.4;
