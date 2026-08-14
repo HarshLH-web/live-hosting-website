@@ -39,7 +39,7 @@ const METWALLET_URL = 'https://www.arripayment.com/before-login';
 function readConsentNeeded() {
   if (typeof window === 'undefined') return false;
   try {
-    return !localStorage.getItem('conect_consent');
+    return !localStorage.getItem('Connect_consent');
   } catch {
     return true;
   }
@@ -205,7 +205,7 @@ const WHAT_IS_NOT = [
   'Not a salaried job or employment with Chamet or Connect.',
   'Not a fixed or guaranteed income. Your earnings depend on your team&apos;s activity.',
   'Not an investment. We do not ask for any joining fee or deposit.',
-  'Not run by Chamet. Conect is an independent partner and is not the owner of the platform.',
+  'Not run by Chamet. Connect is an independent partner and is not the owner of the platform.',
 ];
 
 const HOST_STEPS = [
@@ -333,10 +333,10 @@ const METWALLET_PART2 = [
 const FAQS = [
   {
     q: 'Is there any fee to register?',
-    a: 'No. Registering as a Chamet agency partner is free, and Conect does not charge for onboarding or support. If anyone asks you for a joining fee, deposit, or training payment in our name, do not pay it message us and we will confirm.',
+    a: 'No. Registering as a Chamet agency partner is free, and Connect does not charge for onboarding or support. If anyone asks you for a joining fee, deposit, or training payment in our name, do not pay it message us and we will confirm.',
   },
   {
-    q: 'Am I employed by Chamet or by Conect?',
+    q: 'Am I employed by Chamet or by Connect?',
     a: 'Neither. You register your own independent agency account. There is no salary, no contract of employment, and no fixed hours. You decide how much you do and when.',
   },
   {
@@ -678,7 +678,7 @@ export default function ChametAgencyRegistration() {
     });
 
     try {
-      const saved = localStorage.getItem('conect_consent');
+      const saved = localStorage.getItem('Connect_consent');
       if (saved === 'granted') {
         window.gtag('consent', 'update', {
           ad_storage: 'granted',
@@ -694,7 +694,7 @@ export default function ChametAgencyRegistration() {
 
   const setConsent = (value) => {
     try {
-      localStorage.setItem('conect_consent', value);
+      localStorage.setItem('Connect_consent', value);
     } catch {
       /* ignore */
     }
@@ -715,12 +715,12 @@ export default function ChametAgencyRegistration() {
         <title>Chamet Agency Registration | Register Your Agency Account</title>
         <meta
           name="description"
-          content="Chamet agency registration in six steps, for Chamet and Chill Chat in India. Free to register, guided by the Conect onboarding team, Agent ID verified the same day. 18 years and over only."
+          content="Chamet agency registration in six steps, for Chamet and Chill Chat in India. Free to register, guided by the Connect onboarding team, Agent ID verified the same day. 18 years and over only."
         />
         <meta name="robots" content="index, follow" />
         <link rel="canonical" href="https://connectwithapps.com/chamet" />
         <meta property="og:type" content="website" />
-        <meta property="og:title" content="Chamet Agency Registration | Conect" />
+        <meta property="og:title" content="Chamet Agency Registration | Connect" />
         <meta
           property="og:description"
           content="Register your Chamet agency account in six steps. Free, guided, and verified the same day. 18 years and over only."
@@ -745,7 +745,7 @@ export default function ChametAgencyRegistration() {
                 <span
                   className={`${bricolage.className} block font-extrabold text-[17px] tracking-[-0.02em]`}
                 >
-                  Conect
+                  Connect
                 </span>
                 <span
                   className={`${spaceMono.className} block text-[10px] tracking-widest uppercase text-[#8B8296] mt-px`}
@@ -1041,7 +1041,7 @@ export default function ChametAgencyRegistration() {
                 <>
                   <strong className="text-[#181521] font-semibold">Where your documents go:</strong>{' '}
                   Your identity documents should only be uploaded on MetWallet&apos;s official
-                  website. Never send them to Conect or upload them through this page.
+                  website. Never send them to Connect or upload them through this page.
                   <br />
                   <br />
                   We will never ask you to send your ID document, password, or verification code
@@ -1152,9 +1152,9 @@ export default function ChametAgencyRegistration() {
           <Wrap>
             <p className="text-[13px] text-[#8B8296] leading-[1.7]">
               <strong className="text-[#544C61] font-semibold">
-                Conect is an independent agency partner.
+                Connect is an independent agency partner.
               </strong>{' '}
-              This website is operated by Conect and is not owned by, operated by, or officially
+              This website is operated by Connect and is not owned by, operated by, or officially
               affiliated with Chamet or its parent company. Chamet and its logo are the property of
               their respective owners and are referred to here only to describe the platform we
               work with.
@@ -1170,7 +1170,7 @@ export default function ChametAgencyRegistration() {
               to complete identity verification. This program is not open to anyone under 18.
             </p>
             <div className="mt-6.5 pt-5 border-t border-[rgba(24,21,33,0.07)] flex flex-wrap gap-3.5 justify-between text-[13px] text-[#8B8296]">
-              <span>© 2026 Conect · Bhiwadi, Rajasthan, India</span>
+              <span>© 2026 Connect · Bhiwadi, Rajasthan, India</span>
               <div className="flex flex-wrap gap-4.5">
                 <Link href="/privacy" className="no-underline hover:text-[#181521] hover:underline">
                   Privacy policy
