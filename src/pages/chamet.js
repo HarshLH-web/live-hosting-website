@@ -50,10 +50,10 @@ function subscribeConsent() {
 }
 
 const BEFORE_START = [
-  'A mobile number you can receive a code on right now',
-  'A password you will remember for the dashboard',
-  'An identity document for verification later',
-  'About five minutes, without interruption',
+  'A mobile number where you can receive the verification code',
+  'A password you can easily remember for your dashboard',
+  'An identity document for verification',
+  'Around five minutes to complete the process without interruption',
 ];
 
 const REGISTRATION_STEPS = [
@@ -71,31 +71,31 @@ const REGISTRATION_STEPS = [
         >
           Chamet&apos;s agency registration page
         </a>
-        . Opening it through this link connects your new agency to Conect for support.
+        . Opening it through this link connects your new agency to Connect for support.
       </>
     ),
   },
   {
     num: '02',
     title: 'Enter your mobile number',
-    body: 'Use the number you want permanently linked to the agency account. Changing it later is not simple, so choose carefully.',
+    body: 'Enter the mobile number you want to use for your agency account. Choose a number you can access easily.',
   },
   {
     num: '03',
     title: 'Request the verification code',
-    body: 'Tap Send. A one-time code arrives on WhatsApp or as a text message, usually within a minute.',
+    body: 'Tap Send. You will receive a verification code on WhatsApp or by text message, usually within a minute.',
   },
   {
     num: '04',
     title: 'Enter the code and set a password',
-    body: 'Type the code, then create a password and confirm it. Save the password somewhere safe you will need it every time you log in.',
+    body: 'Enter the code and create a password for your account. Keep the password somewhere safe so you can easily log in later',
   },
   {
     num: '05',
     title: 'Register and log in',
     body: (
       <>
-        Tap Register, then sign in at the{' '}
+        Tap Register, then log in to the{' '}
         <a
           className="text-[#3B1F4A] font-semibold underline underline-offset-[3px]"
           href={DASHBOARD_URL}
@@ -104,14 +104,14 @@ const REGISTRATION_STEPS = [
         >
           Chamet agency dashboard
         </a>
-        . Your Agent ID is shown on the dashboard once you are in.
+        . Once you are logged in, you will see your Agent ID.
       </>
     ),
   },
   {
     num: '06',
     title: 'Send us your Agent ID',
-    body: 'Message your Agent ID to our team so we can verify the account and start your onboarding. This is the step people forget.',
+    body: 'Send your Agent ID to our team. We’ll help you check the account details and guide you through the next steps.',
     action: (
       <a
         className={`${publicSans.className} inline-flex items-center justify-center gap-2 font-semibold text-sm py-2.5 px-4.5 rounded-md bg-[#E8446F] text-white no-underline hover:bg-[#cf3760] transition mt-3.5 active:translate-y-px`}
@@ -164,32 +164,32 @@ const REQUIREMENTS = [
 const SUPPORT_CELLS = [
   {
     title: 'Guided registration',
-    desc: 'We stay with you on WhatsApp through the six steps below and check your details before you submit.',
+    desc: 'We guide you through the six registration steps on WhatsApp and help you check your details before you submit.',
     icon: 'folder',
   },
   {
     title: 'Dashboard walkthrough',
-    desc: 'A plain explanation of the agent dashboard: adding hosts, reading their activity, and where the settings sit.',
+    desc: 'We explain the agent dashboard in simple language, including how to add hosts, check their activity, and find the settings.',
     icon: 'card',
   },
   {
     title: 'Host onboarding help',
-    desc: 'How to add hosts to your agency, what verification they need, and what the platform expects from them.',
+    desc: 'We help you understand how to add hosts to your agency, what verification they need, and what Chamet expects from them.',
     icon: 'users',
   },
   {
     title: 'Rules, kept current',
-    desc: 'Chamet updates its requirements from time to time. We tell you what changed and what it means for your team.',
+    desc: 'Chamet may update its requirements from time to time. We help you understand the latest changes and what they mean for your team.',
     icon: 'shield',
   },
   {
     title: 'Global reach',
-    desc: 'Chamet is used across many countries and languages, so your hosts are not limited to one region.',
+    desc: 'Chamet is used in many countries and languages, giving your agency the opportunity to work with hosts from different regions.',
     icon: 'globe',
   },
   {
     title: 'Your own hours',
-    desc: 'You run your agency from a phone or laptop, on whatever schedule suits you. There is no shift or roster.',
+    desc: 'You can manage your agency from a phone or laptop and choose the hours that work for you. There is no fixed shift.',
     icon: 'clock',
   },
 ];
@@ -197,15 +197,15 @@ const SUPPORT_CELLS = [
 const WHAT_IS = [
   'An independent agency partnership on Chamet, a live video chat platform, listed in India as Chill Chat.',
   'You recruit hosts, add them to your agency, and support them.',
-  "Chamet pays agencies based on their team's activity, under Chamet's own published terms.",
-  'Registration is free and you keep full control of your own account.',
+  "Chamet pays agencies based on their team's activity, under Chamet's own terms.",
+  'Registration is free, and you have full control of your own account.',
 ];
 
 const WHAT_IS_NOT = [
-  'Not a salaried job, and not employment with Chamet or with Conect.',
-  'Not a fixed or guaranteed income. Nothing is earned if your team is not active.',
-  'Not an investment, and we never ask you to pay a joining fee or deposit.',
-  'Not run by Chamet. Conect is an independent partner, not the platform owner.',
+  'Not a salaried job or employment with Chamet or Connect.',
+  'Not a fixed or guaranteed income. Your earnings depend on your team&apos;s activity.',
+  'Not an investment. We do not ask for any joining fee or deposit.',
+  'Not run by Chamet. Conect is an independent partner and is not the owner of the platform.',
 ];
 
 const HOST_STEPS = [
@@ -214,7 +214,7 @@ const HOST_STEPS = [
     title: 'Send the invitation from your dashboard',
     body: (
       <>
-        Open the host invitation link in your{' '}
+        Open the host invitation link from your{' '}
         <a
           className="text-[#3B1F4A] font-semibold underline underline-offset-[3px]"
           href={DASHBOARD_URL}
@@ -223,20 +223,20 @@ const HOST_STEPS = [
         >
           agency dashboard
         </a>{' '}
-        and share it with the person joining. An invitation sent any other way will not attach them
-        to your agency.
+        and share it with the person joining your team. Make sure they use this link so the host
+        account can be connected to your agency.
       </>
     ),
   },
   {
     num: '02',
     title: 'They verify a phone number or email address',
-    body: 'The host opens the link and confirms a mobile number or email address with a one-time code.',
+    body: 'The host opens the invitation link and verifies their mobile number or email using the one-time code they receive.',
   },
   {
     num: '03',
     title: 'They download the app',
-    body: 'Chill Chat in India, Chamet elsewhere. Both are on the Google Play Store and both connect to the same account.',
+    body: 'Hosts in India use Chill Chat, while hosts in other countries use Chamet. The app they use depends on their location.',
     extra: (
       <div className="flex flex-wrap gap-2.5 mt-3.5">
         <BtnPlum href={CHILL_CHAT_URL} small>
@@ -251,12 +251,12 @@ const HOST_STEPS = [
   {
     num: '04',
     title: 'They log in with the verified details',
-    body: 'The host signs in using exactly the number or email they verified in step two. A different one creates a separate account that is not linked to your agency.',
+    body: 'The host should log in using the same mobile number or email they verified in the previous step. Using different details can create a separate account that may not be linked to your agency.',
   },
   {
     num: '05',
     title: 'They complete face verification',
-    body: 'Inside the app: Profile, then My Earnings, then Withdraw, then Face Verification. This is Chamet\'s identity check. It confirms the person is a real adult, and until it is done the account is not fully active.',
+    body: "The host completes the face verification inside the app. This is part of Chamet's identity verification process and helps confirm the host's identity and age. The account may not be fully active until verification is completed.",
   },
 ];
 
@@ -264,22 +264,27 @@ const METWALLET_PART1 = [
   {
     num: '01',
     title: 'Log in to the app',
-    body: 'Open Chill Chat or Chamet and sign in with the same mobile number and password you used for agency registration.',
+    body: 'Open Chill Chat or Chamet and log in using the same mobile number and password you used for your agency registration.',
   },
   {
     num: '02',
-    title: 'Open the wallet screen',
-    body: 'Go to Profile, then Beans, then Withdraw, then MetWallet.',
+    title: 'Open the wallet',
+    body: <>Go to <span className='font-semibold'> Profile → Beans → Withdraw → MetWallet</span>.</>,
   },
   {
     num: '03',
-    title: 'Enter your email address',
-    body: 'Choose the email option and enter an address you can open right away. A verification code is sent to it.',
+    title: 'Enter your email',
+    body: "Select the email option and enter an email address you can access right away. You'll receive a verification code on it.",
   },
   {
     num: '04',
     title: 'Confirm the code and set a password',
-    body: 'Enter the code from your email, create a password, confirm it, then tap Authorize. The wallet is now created and linked to your account.',
+    body: 'Enter the code you received by email. Then create and confirm your wallet password and tap Authorize.',
+    extra: (
+      <p className="text-[14.5px] text-[#544C61] mt-2">
+        Your MetWallet is now created and linked to your account.
+      </p>
+    ),
   },
 ];
 
@@ -289,33 +294,39 @@ const METWALLET_PART2 = [
     title: 'Log in to MetWallet',
     body: (
       <>
-        Go to{' '}
+        Go to the{' '}
         <a
           className="text-[#3B1F4A] font-semibold underline underline-offset-[3px]"
           href={METWALLET_URL}
           target="_blank"
           rel="noopener noreferrer"
         >
-          the MetWallet site
+          MetWallet website
         </a>{' '}
-        and sign in with the email address and password you just set.
+        and log in using the email address and password you created earlier.
       </>
     ),
   },
   {
     num: '06',
-    title: 'Basic verification',
-    body: 'Enter your full name, date of birth, and address. Use details that match your identity document exactly a mismatch is the usual reason verification is rejected.',
+    title: 'Complete basic verification',
+    body: 'Enter your full name, date of birth, and address. Make sure these details match your identity document to avoid verification issues.',
   },
   {
     num: '07',
-    title: 'Second stage',
-    body: 'Upload the front of your government-issued identity document.',
+    title: 'Upload your ID — Front',
+    body: 'Upload a clear photo of the front side of your government-issued identity document.',
   },
   {
     num: '08',
-    title: 'Final stage',
-    body: 'Upload the back of the same document. Once this is approved your wallet is fully verified and withdrawals are open.',
+    title: 'Upload your ID - Back',
+    body: 'Upload a clear photo of the back side of the same document.',
+    extra: (
+      <p className="text-[14.5px] text-[#544C61] mt-2">
+        Once your verification is approved, your MetWallet will be fully verified, and you can use
+        it for withdrawals.
+      </p>
+    ),
   },
 ];
 
@@ -761,9 +772,7 @@ export default function ChametAgencyRegistration() {
                   <em className="not-italic text-[#3B1F4A]">Chamet agency</em> registration
                 </h1>
                 <p className="text-[17px] text-[#544C61] max-w-[50ch]">
-                  Open a Chamet agency account in six steps. Conect guides you through the form,
-                  checks your details before you submit, and verifies your Agent ID once you are
-                  through.
+                Start your Chamet agency registration in six simple steps. Connect helps you understand each step, guides you while filling out the form, checks your details before you submit, and helps you complete the Agent ID verification process
                 </p>
 
 
@@ -867,9 +876,18 @@ export default function ChametAgencyRegistration() {
               <SectionHead
                 label="The process"
                 title="How Chamet agency registration works"
-                description="Registration happens on Chamet's own page. Follow these six steps in order and the whole thing takes about five minutes."
+                description="Registration is completed on Chamet’s own page. Just follow these six simple steps in order. The whole process usually takes around five minutes."
               />
               <StepList steps={REGISTRATION_STEPS} />
+
+              <div className="mt-6">
+                <p className="text-[#0e0e0e] text-[16px] font-medium">
+                Agreement to Chamet&apos;s community rules.
+                </p>
+                <p className="text-[#544C61] text-[14.5px]">
+                You and your hosts must follow Chamet&apos;s community rules while using the platform
+                </p>
+              </div>
             </Wrap>
           </section>
 
@@ -901,7 +919,7 @@ export default function ChametAgencyRegistration() {
               <SectionHead
                 label="After registration"
                 title="What happens once you are registered"
-                description="Registering is the easy part. What follows is setting up the dashboard, adding your first hosts, and keeping the account in good standing. That is where we stay involved."
+                description="Registration is just the first step. After that, you&apos;ll need to set up your dashboard, add your first hosts, and make sure your account follows Chamet&apos;s rules. This is where our team can guide you and help you through the next steps"
               />
               <div className="grid grid-cols-1 min-[860px]:grid-cols-3 gap-px bg-[rgba(24,21,33,0.13)] border border-[rgba(24,21,33,0.13)] rounded-xl overflow-hidden">
                 {SUPPORT_CELLS.map((cell) => (
@@ -930,7 +948,7 @@ export default function ChametAgencyRegistration() {
                   Read this part first
                 </h2>
                 <p className="mt-3 text-[#544C61] max-w-[56ch] text-[15.5px]">
-                  We would rather you decide with the full picture than register and find out later.
+                We want you to understand everything before you register, so you can make the right decision without any confusion later on.
                 </p>
                 <div className="grid grid-cols-1 min-[860px]:grid-cols-2 gap-6.5 min-[860px]:gap-2.75 mt-5.5">
                   <div>
@@ -965,17 +983,22 @@ export default function ChametAgencyRegistration() {
               <SectionHead
                 label="For your team"
                 title="How host registration works"
-                description="Once your agency is verified you can bring hosts onto your team. Hosts have to be invited from inside your agency dashboard there is no way to add someone from outside it, so this is the order to follow."
+                description="Once your agency is verified, you can start adding hosts to your team. Hosts need to be invited through your agency dashboard. You cannot add someone from outside the dashboard, so make sure you follow the steps in the correct order."
               />
               <StepList steps={HOST_STEPS} />
               <DownloadCallout>
                 <>
-                  <strong className="text-[#181521] font-semibold">Your responsibility as the agency.</strong>{' '}
-                  Every host you invite must be 18 or over and must pass face verification in their
-                  own name no shared accounts, no registering on someone else&apos;s behalf. Hosts
-                  must follow Chamet&apos;s community guidelines while streaming. If a host on your
-                  team breaks those rules, the platform can remove them and act against your agency
-                  as well.
+                  <strong className="text-[#181521] font-semibold">
+                    Your responsibility as the agency:
+                  </strong>{' '}
+                  Every host you invite must be 18 years or older and complete face verification
+                  using their own identity. Shared accounts or registering an account for someone
+                  else are not allowed.
+                  <br />
+                  <br />
+                  Your hosts must also follow Chamet&apos;s community guidelines while streaming. If
+                  a host breaks the platform&apos;s rules, Chamet may remove the host and may also
+                  take action against the agency.
                 </>
               </DownloadCallout>
             </Wrap>
@@ -987,35 +1010,46 @@ export default function ChametAgencyRegistration() {
               <SectionHead
                 label="Payouts"
                 title="Setting up MetWallet"
-                description="MetWallet is the wallet Chamet pays through. Nothing can be withdrawn until it is created and linked, so do this early rather than on the day you first need it. Agent commission and host earnings go to separate MetWallet accounts."
+                description="MetWallet is a wallet in the Chamet app where your earnings (money) are received. You need to set it up first so you can withdraw your money later. If you set it up early, you will not face any problems in the future."
               />
+              <p className="text-base text-[#544C61] -mt-5 mb-8.5">
+                Agent (agency) earnings and host earnings go into separate MetWallet accounts.
+              </p>
               <h3
                 className={`${bricolage.className} font-extrabold text-[17px] tracking-[-0.02em] mb-1.5`}
               >
-                Part one create the wallet inside the app
+                Part one: create the wallet inside the app
               </h3>
               <p className="text-[14.5px] text-[#544C61] mb-2">
-                Use the same mobile number and password as your agency account, or the wallet will
-                not link.
+                When creating your MetWallet, use the same mobile number and password that you used
+                for your agency account. This helps connect your wallet to the correct account and
+                avoids any mistakes.
               </p>
               <StepList steps={METWALLET_PART1} />
               <h3
                 className={`${bricolage.className} font-extrabold text-[17px] tracking-[-0.02em] mt-9 mb-1.5`}
               >
-                Part two verify the wallet on MetWallet&apos;s own site
+                Part two: Verify the wallet on MetWallet&apos;s website
               </h3>
               <p className="text-[14.5px] text-[#544C61] mb-2">
-                Creating the wallet is not enough on its own. Verification happens on MetWallet&apos;s
-                website, in three stages.
+                Creating your MetWallet is only the first step. You also need to verify it on
+                MetWallet&apos;s website. The verification process is completed in three simple
+                steps.
               </p>
               <StepList steps={METWALLET_PART2} />
               <DownloadCallout>
                 <>
-                  <strong className="text-[#181521] font-semibold">Where your documents go.</strong>{' '}
-                  Identity documents are uploaded on MetWallet&apos;s own website, never to Conect and
-                  never through this page. We will never ask you to send an identity document, a
-                  password, or a verification code over WhatsApp or email if anyone does, it is
-                  not us. Your MetWallet password should be different from your agency password.
+                  <strong className="text-[#181521] font-semibold">Where your documents go:</strong>{' '}
+                  Your identity documents should only be uploaded on MetWallet&apos;s official
+                  website. Never send them to Conect or upload them through this page.
+                  <br />
+                  <br />
+                  We will never ask you to send your ID document, password, or verification code
+                  through WhatsApp or email. If someone asks for these details, do not share them.
+                  <br />
+                  <br />
+                  Also, keep your MetWallet password different from your agency password for better
+                  account security.
                 </>
               </DownloadCallout>
               <div className="mt-6.5">
