@@ -179,6 +179,15 @@ function BlogDetailPage({ blog, tableOfContents, contentBlocks }) {
   );
 }
 
+const RESERVED_SLUGS = new Set([
+  'robots.txt',
+  'sitemap.xml',
+  'sitemap.html',
+  'favicon.ico',
+  'poppo',
+  'chamet',
+]);
+
 export async function getStaticPaths() {
   try {
     // const res = await axios.get("http://localhost:8000/api/live-hosting-blogs/selected-fields");
@@ -187,9 +196,11 @@ export async function getStaticPaths() {
     );
     const blogs = res.data.filter((blog) => blog.toPublish);
 
-    const paths = blogs.map((blog) => ({
-      params: { slug: blog.slug },
-    }));
+    const paths = blogs
+      .filter((blog) => !RESERVED_SLUGS.has(blog.slug))
+      .map((blog) => ({
+        params: { slug: blog.slug },
+      }));
 
     return {
       paths,
@@ -206,6 +217,10 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params }) {
   const { slug } = params;
+
+  if (!slug || RESERVED_SLUGS.has(slug) || slug.includes('.')) {
+    return { notFound: true };
+  }
 
   try {
     // const response = await axios.get(`http://localhost:8000/api/live-hosting-blogs/${slug}`);

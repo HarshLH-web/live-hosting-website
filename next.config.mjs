@@ -24,6 +24,16 @@ const nextConfig = {
         destination: "/:slug",
         permanent: true,
       },
+      {
+        source: "/poppo-agent",
+        destination: "/poppo",
+        permanent: true,
+      },
+      {
+        source: "/join-chamet-agency",
+        destination: "/chamet",
+        permanent: true,
+      },
     ];
   },
 };

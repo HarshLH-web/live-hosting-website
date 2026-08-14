@@ -320,6 +320,8 @@ export default function PoppoAgent() {
   const langRef = useRef(null);
 
   useEffect(() => {
+    if (currentLang === 'en') return;
+
     window.googleTranslateElementInit = () => {
       if (!window.google?.translate?.TranslateElement) return;
       new window.google.translate.TranslateElement(
@@ -342,7 +344,7 @@ export default function PoppoAgent() {
     } else if (window.google?.translate?.TranslateElement) {
       window.googleTranslateElementInit();
     }
-  }, []);
+  }, [currentLang]);
 
   useEffect(() => {
     const handleClickOutside = (event) => {
@@ -390,6 +392,15 @@ export default function PoppoAgent() {
           name="description"
           content="Become a Poppo Live agency partner with Live Hosting. Get onboarding support, guidance, and ongoing assistance as an independent agency partner."
         />
+        <meta name="robots" content="index, follow" />
+        <link rel="canonical" href="https://livehosting.xyz/poppo" />
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content="Become a Poppo Live Agency Partner — Live Hosting" />
+        <meta
+          property="og:description"
+          content="Become a Poppo Live agency partner with Live Hosting. Get onboarding support, guidance, and ongoing assistance as an independent agency partner."
+        />
+        <meta property="og:url" content="https://livehosting.xyz/poppo" />
       </Head>
 
       <div
