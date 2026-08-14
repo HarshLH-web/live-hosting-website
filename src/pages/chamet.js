@@ -88,7 +88,7 @@ const REGISTRATION_STEPS = [
   {
     num: '04',
     title: 'Enter the code and set a password',
-    body: 'Type the code, then create a password and confirm it. Save the password somewhere safe — you will need it every time you log in.',
+    body: 'Type the code, then create a password and confirm it. Save the password somewhere safe you will need it every time you log in.',
   },
   {
     num: '05',
@@ -305,7 +305,7 @@ const METWALLET_PART2 = [
   {
     num: '06',
     title: 'Basic verification',
-    body: 'Enter your full name, date of birth, and address. Use details that match your identity document exactly — a mismatch is the usual reason verification is rejected.',
+    body: 'Enter your full name, date of birth, and address. Use details that match your identity document exactly a mismatch is the usual reason verification is rejected.',
   },
   {
     num: '07',
@@ -322,7 +322,7 @@ const METWALLET_PART2 = [
 const FAQS = [
   {
     q: 'Is there any fee to register?',
-    a: 'No. Registering as a Chamet agency partner is free, and Conect does not charge for onboarding or support. If anyone asks you for a joining fee, deposit, or training payment in our name, do not pay it — message us and we will confirm.',
+    a: 'No. Registering as a Chamet agency partner is free, and Conect does not charge for onboarding or support. If anyone asks you for a joining fee, deposit, or training payment in our name, do not pay it message us and we will confirm.',
   },
   {
     q: 'Am I employed by Chamet or by Conect?',
@@ -346,7 +346,7 @@ const FAQS = [
   },
   {
     q: 'Is Chill Chat the same as Chamet?',
-    a: 'Yes. In India the application is listed on the Play Store as Chill Chat, while the agency side still runs under the Chamet name. It is one platform, one agency dashboard, and one registration — the steps on this page apply either way. If you searched for Chill Chat agency registration, you are in the right place.',
+    a: 'Yes. In India the application is listed on the Play Store as Chill Chat, while the agency side still runs under the Chamet name. It is one platform, one agency dashboard, and one registration the steps on this page apply either way. If you searched for Chill Chat agency registration, you are in the right place.',
   },
   {
     q: 'Can I register hosts before my agency is verified?',
@@ -370,7 +370,7 @@ const FAQS = [
   },
   {
     q: 'I already have an agency account. Can I still get support?',
-    a: 'If your account is registered under another agency partner we cannot take it over — that is set at registration. Message us anyway and we will tell you honestly what your options are.',
+    a: 'If your account is registered under another agency partner we cannot take it over that is set at registration. Message us anyway and we will tell you honestly what your options are.',
   },
 ];
 
@@ -853,7 +853,7 @@ export default function ChametAgencyRegistration() {
                     <strong className="text-[#181521] font-semibold">
                       In India, Chamet is listed as Chill Chat.
                     </strong>{' '}
-                    Same platform, same agency dashboard, same registration steps — only the Play
+                    Same platform, same agency dashboard, same registration steps only the Play
                     Store listing is different. Download the one for your country.
                   </>
                 </DownloadCallout>
@@ -965,14 +965,14 @@ export default function ChametAgencyRegistration() {
               <SectionHead
                 label="For your team"
                 title="How host registration works"
-                description="Once your agency is verified you can bring hosts onto your team. Hosts have to be invited from inside your agency dashboard — there is no way to add someone from outside it, so this is the order to follow."
+                description="Once your agency is verified you can bring hosts onto your team. Hosts have to be invited from inside your agency dashboard there is no way to add someone from outside it, so this is the order to follow."
               />
               <StepList steps={HOST_STEPS} />
               <DownloadCallout>
                 <>
                   <strong className="text-[#181521] font-semibold">Your responsibility as the agency.</strong>{' '}
                   Every host you invite must be 18 or over and must pass face verification in their
-                  own name — no shared accounts, no registering on someone else&apos;s behalf. Hosts
+                  own name no shared accounts, no registering on someone else&apos;s behalf. Hosts
                   must follow Chamet&apos;s community guidelines while streaming. If a host on your
                   team breaks those rules, the platform can remove them and act against your agency
                   as well.
@@ -992,7 +992,7 @@ export default function ChametAgencyRegistration() {
               <h3
                 className={`${bricolage.className} font-extrabold text-[17px] tracking-[-0.02em] mb-1.5`}
               >
-                Part one — create the wallet inside the app
+                Part one create the wallet inside the app
               </h3>
               <p className="text-[14.5px] text-[#544C61] mb-2">
                 Use the same mobile number and password as your agency account, or the wallet will
@@ -1002,7 +1002,7 @@ export default function ChametAgencyRegistration() {
               <h3
                 className={`${bricolage.className} font-extrabold text-[17px] tracking-[-0.02em] mt-9 mb-1.5`}
               >
-                Part two — verify the wallet on MetWallet&apos;s own site
+                Part two verify the wallet on MetWallet&apos;s own site
               </h3>
               <p className="text-[14.5px] text-[#544C61] mb-2">
                 Creating the wallet is not enough on its own. Verification happens on MetWallet&apos;s
@@ -1014,7 +1014,7 @@ export default function ChametAgencyRegistration() {
                   <strong className="text-[#181521] font-semibold">Where your documents go.</strong>{' '}
                   Identity documents are uploaded on MetWallet&apos;s own website, never to Conect and
                   never through this page. We will never ask you to send an identity document, a
-                  password, or a verification code over WhatsApp or email — if anyone does, it is
+                  password, or a verification code over WhatsApp or email if anyone does, it is
                   not us. Your MetWallet password should be different from your agency password.
                 </>
               </DownloadCallout>
@@ -1128,7 +1128,7 @@ export default function ChametAgencyRegistration() {
               <br />
               We do not guarantee registration approval or any level of income. Agency payments are
               set and made by Chamet under its own published terms, and what a partner receives
-              depends on the activity of their host team. Registration is free — we never charge a
+              depends on the activity of their host team. Registration is free we never charge a
               joining fee, deposit, or training fee.
               <br />
               <br />
