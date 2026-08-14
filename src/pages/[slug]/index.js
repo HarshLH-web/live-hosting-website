@@ -185,6 +185,7 @@ const RESERVED_SLUGS = new Set([
   'sitemap.html',
   'favicon.ico',
   'poppo',
+  'poppo-2',
   'chamet',
 ]);
 
