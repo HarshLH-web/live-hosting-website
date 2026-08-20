@@ -447,6 +447,7 @@ export default function PoppoAgent() {
                   }}
                   className={`${orbitron.className} inline-flex items-center gap-1.5 font-bold text-[0.68rem] sm:text-[0.72rem] tracking-[0.04em] text-[#0B0F1E] bg-white border border-[#DCE3F2] sm:py-3 p-2 sm:px-3.5 rounded-md hover:border-[#00C2FF] transition focus-visible:outline-2 focus-visible:outline-[#00C2FF] focus-visible:outline-offset-[3px]`}
                   aria-expanded={openPolicy}
+                  aria-label='Open Policy Menu'
                   aria-haspopup="listbox"
                 >
                   <svg
