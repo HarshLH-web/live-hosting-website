@@ -24,7 +24,7 @@ const orbitron = Orbitron({
 });
 
 const AGENCY_APPLY_URL =
-  'https://h5.vshowapi.com/guild/agency_invite/register/?inviter_id=29828616&c=poppo%20%20';
+  'https://invite-vone.com/7D5Bai';
 const DOWNLOAD_APP_URL =
   'https://invite-poppo.com/bzG7eB';
 const WHATSAPP_URL =
@@ -587,7 +587,7 @@ export default function Poppo2() {
               <div className="mt-4 text-[0.86rem] text-[#525A72]">
                 Indian users can also{' '}
                 <a
-                  href="https://joinluvlive.com/azNtkC"
+                  href="https://invite-vone.com/azNtkC"
                   target="_blank"
                   rel="noopener noreferrer"
                   className={LINK}
