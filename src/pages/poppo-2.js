@@ -24,12 +24,12 @@ const orbitron = Orbitron({
 });
 
 const AGENCY_APPLY_URL =
-  'https://invite-vone.com/7D5Bai';
+  'https://vp.poppolive.com/wJaS2z';
 const DOWNLOAD_APP_URL =
-  'https://invite-poppo.com/bzG7eB';
+  'https://invite-poppo.com/DHNBwC';
 const WHATSAPP_URL =
   'https://api.whatsapp.com/send/?phone=917065384660&text&type=phone_number&app_absent=0';
-const AGENCY_CODE = '29828616';
+const AGENCY_CODE = '263506';
 const TRANSLATE_COOKIE = 'googtrans';
 
 const LANGUAGES = [
