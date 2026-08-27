@@ -676,11 +676,16 @@ export default function Poppo2() {
                 },
                 {
                   num: '02',
+                  title: "Complete facial verification",
+                  body: <>Go to your profile section and tap Auth to complete facial verification. This is required before you can become an agent on Poppo or Vone. &quot;You cannot become an agent because you did not pass facial verification.&quot;</>,
+                },
+                {
+                  num: '03',
                   title: 'Find Your ID',
                   body: 'Go to your profile in the app and copy your unique Poppo ID number.',
                 },
                 {
-                  num: '03',
+                  num: '04',
                   title: 'Submit Your Application',
                   body: (
                     <>
@@ -693,7 +698,7 @@ export default function Poppo2() {
                   ),
                 },
                 {
-                  num: '04',
+                  num: '05',
                   title: 'Finish Up',
                   body: 'Enter that verification code here and click on Submit. All set, now you become Poppo Agent.',
                 },
