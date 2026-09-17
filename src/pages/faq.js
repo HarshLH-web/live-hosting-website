@@ -42,7 +42,7 @@ const faqs = [
   {
     question: "How to earn money through hosting on live streaming apps?",
     answer:
-      "There will be targets based on every month. The level will depend on streaming duration and received gifts. Once a host makes both the target in a month they get their salary credited. Our team representative will provide you with all the details of this process. For any further queries contact us on <a href='https://wa.me/917065384660' class='text-[#DE0402]'>+91 7065384660</a>",
+      "There will be targets based on every month. The level will depend on streaming duration and received gifts. Once a host makes both the target in a month they get their salary credited. Our team representative will provide you with all the details of this process. For any further queries contact us on <a href='https://wa.me/919650889239' class='text-[#DE0402]'>+91 9650889239</a>",
   },
   {
     question: "What skills are accepted to become an official host?",

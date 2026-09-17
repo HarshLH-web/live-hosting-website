@@ -168,10 +168,10 @@ function Support() {
         </h3>
 
         <a
-          href="https://api.whatsapp.com/send/?phone=7065384660&text&type=phone_number&app_absent=0"
+          href="https://api.whatsapp.com/send/?phone=9650889239&text&type=phone_number&app_absent=0"
           className="text-base bg-[#FFF5F4] my-2 w-full max-w-sm border border-[#DE0402] rounded-full whitespace-nowrap py-3 text-center mt-6"
         >
-          <span className="font-bold">WhatsApp:</span> +917065384660
+          <span className="font-bold">WhatsApp:</span> +919650889239
         </a>
 
         <a

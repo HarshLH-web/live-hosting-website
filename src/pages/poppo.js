@@ -28,7 +28,7 @@ const AGENCY_APPLY_URL =
 const DOWNLOAD_APP_URL =
   'https://invite-poppo.com/DHNBwC';
 const WHATSAPP_URL =
-  'https://api.whatsapp.com/send/?phone=917065384660&text&type=phone_number&app_absent=0';
+  'https://api.whatsapp.com/send/?phone=919650889239&text&type=phone_number&app_absent=0';
 const AGENCY_CODE = '263506';
 const TRANSLATE_COOKIE = 'googtrans';
 

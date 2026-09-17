@@ -30,11 +30,11 @@ function Footer() {
             <div className='space-y-2'>
             <div className='flex items-center'>
               <span className='bg-white w-1 h-1 rounded-full inline-block mr-2'></span>
-            <Link href='#' className="text-white block md:inline transform hover:translate-x-2 hover:text-[#ff2e2b] transition duration-300">Call/Whatsapp: +917065384660</Link>
+            <Link href='https://wa.me/919650889239' className="text-white block md:inline transform hover:translate-x-2 hover:text-[#ff2e2b] transition duration-300">Call/Whatsapp: +919650889239</Link>
             </div>
             <div className='flex items-center'>
               <span className='bg-white w-1 h-1 rounded-full inline-block mr-2'></span>
-            <Link href='#' className="text-white block md:inline transform hover:translate-x-2 hover:text-[#ff2e2b] transition duration-300">Email: support@lhtalentagency.com</Link>
+            <Link href='mailto:support@lhtalentagency.com' className="text-white block md:inline transform hover:translate-x-2 hover:text-[#ff2e2b] transition duration-300">Email: support@lhtalentagency.com</Link>
             </div>
             </div>
 

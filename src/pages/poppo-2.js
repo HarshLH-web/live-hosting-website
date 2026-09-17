@@ -28,7 +28,7 @@ const AGENCY_APPLY_URL =
 const DOWNLOAD_APP_URL =
   'https://invite-poppo.com/DHNBwC';
 const WHATSAPP_URL =
-  'https://api.whatsapp.com/send/?phone=917065384660&text&type=phone_number&app_absent=0';
+  'https://api.whatsapp.com/send/?phone=919650889239&text&type=phone_number&app_absent=0';
 const AGENCY_CODE = '263506';
 const TRANSLATE_COOKIE = 'googtrans';
 
@@ -607,7 +607,7 @@ export default function Poppo2() {
               alt="Poppo Live Agency Partner"
               width={500}
               height={500}
-              className="w-full h-auto max-w-80 md:max-w-96 mx-auto"
+              className="w-full h-auto max-w-80 md:max-w-96 mx-auto hidden lg:block"
             />
 
             {/* <HudPanel className="p-[26px]">
