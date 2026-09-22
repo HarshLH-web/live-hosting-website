@@ -43,18 +43,22 @@ const POLICIES = [
   {
     text: 'Host Policy',
     url: '/Policies/POPPO HOST REGISTRATION - WEBSITE.pdf',
+    id: 'host-policy-download-btn',
   },
   {
     text: 'Agency Policy',
     url: '/Policies/POPPO AGENCY POLICY - WEBSITE.pdf',
+    id: 'agency-policy-download-btn',
   },
   {
     text: 'Coin Seller Policy',
     url: '/Policies/Poppo Coin Trading - Website.pdf',
+    id: 'coin-seller-policy-download-btn',
   },
   {
     text: 'Rocket Host and Star Host Policy',
     url: '/Policies/Poppo rocket host and star host policy - website.pdf',
+    id: 'rocket-host-and-star-host-policy-download-btn',
   },
 ];
 
@@ -484,6 +488,7 @@ export default function Poppo2() {
                   <div className="absolute right-0 mt-2 w-64 bg-white border border-[#DCE3F2] rounded-lg shadow-lg overflow-hidden z-50">
                     {POLICIES.map((policy) => (
                       <a
+                        id={policy.id}
                         key={policy.url}
                         href={policy.url}
                         download
