@@ -84,7 +84,7 @@ export default function Document() {
 
             <div className="bg-white w-full flex items-center justify-center py-4">
               <a id="lh-start-chat-btn"
-                href="https://api.whatsapp.com/send?phone=919650889239&text=Hi+I+want+to+know+more+about+the+applications." target="_blank" rel="noopener noreferrer"
+                href="https://api.whatsapp.com/send?phone=919650889239&text=Hi%I%want%to%know%more%about%the%applications." target="_blank" rel="noopener noreferrer"
                 className="text-center text-white bg-[#4DC247] rounded-full px-4 py-2 cursor-pointer hover:shadow-lg transition-all duration-300 w-4/5 mx-auto"
               >
                 <p className="text-base font-medium">Start Chat</p>
